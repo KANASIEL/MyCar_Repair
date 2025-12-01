@@ -1,0 +1,12 @@
+package com.boot.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.boot.entity.AutoKeyword;
+
+@Mapper
+public interface AutoKeywordDAO {
+    List<AutoKeyword> searchKeyword(String keyword);
+}

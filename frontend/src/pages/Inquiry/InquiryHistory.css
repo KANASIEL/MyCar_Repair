@@ -1,0 +1,210 @@
+/* InquiryHistory.css */
+
+/* 페이지 전체 */
+.history-page {
+    padding: 40px 20px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+}
+
+.history-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px 30px;
+}
+
+/* 헤더 */
+.history-header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.history-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 필터 */
+.history-filter {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.history-filter select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* 로딩 / 빈 상태 */
+.history-loading,
+.history-empty {
+    text-align: center;
+    padding: 30px;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* 테이블 */
+.history-table-wrapper {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.history-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    color: #444;
+}
+
+.history-table td {
+    color: #555;
+}
+
+.history-col-title a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.history-col-title a:hover {
+    text-decoration: underline;
+}
+
+/* 상태 뱃지 */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.waiting {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* 액션 버튼 */
+.history-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-outline {
+    padding: 8px 16px;
+    border: 1px solid #0077cc;
+    background: #fff;
+    color: #0077cc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: #0077cc;
+    color: #fff;
+}
+
+.btn-danger {
+    padding: 8px 16px;
+    border: none;
+    background: #dc3545;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* 페이지네이션 */
+.history-pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Pagination.css */
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-list {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-item button {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.pagination-item button:hover {
+    background-color: #0077cc;
+    color: #fff;
+    border-color: #0077cc;
+}
+
+/* 활성화된 페이지 */
+.pagination-item.active button {
+    background-color: #0077cc;
+    color: #fff;
+    font-weight: bold;
+    border-color: #0077cc;
+}
+
+/* 이전/다음 버튼 */
+.pagination-item.prev button,
+.pagination-item.next button {
+    font-weight: 600;
+    background-color: #f3f4f6;
+    border-color: #ccc;
+}
+
+.pagination-item.prev button:hover,
+.pagination-item.next button:hover {
+    background-color: #0077cc;
+    color: #fff;
+    border-color: #0077cc;
+}

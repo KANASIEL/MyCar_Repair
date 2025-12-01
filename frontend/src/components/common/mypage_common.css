@@ -1,0 +1,130 @@
+@charset 'utf-8';
+
+/* === 마이페이지 공통 === */
+.mypage-body {
+  width: 90%;
+  max-width: 1180px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  background-color: #fafafa;
+}
+
+/* 타이틀 */
+.mypage-body .mypage-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.mypage-body .mypage-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.mypage-body .mypage-title p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* 섹션 */
+.mypage-body .mypage-section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.mypage-body .mypage-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 20px;
+  border-left: 5px solid #007bff;
+  padding-left: 10px;
+}
+
+/* 테이블 */
+.mypage-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.mypage-body th, 
+.mypage-body td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.mypage-body th {
+  background-color: #f2f2f2;
+  color: #555;
+}
+
+/* 버튼 */
+.mypage-body .btn-normal {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mypage-body .btn-normal:hover {
+  background-color: #0056b3;
+}
+
+.mypage-body .btn-sub {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mypage-body .btn-sub:hover {
+  background-color: #ddd;
+}
+
+/* 상태 표시 */
+.mypage-body .status.pending { color: #f39c12; }
+.mypage-body .status.complete { color: #27ae60; }
+
+/* 후기 */
+.mypage-body .review-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+/* 차량 리스트 */
+.mypage-body .car-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .mypage-body {
+    width: 95%;
+    padding: 20px 10px;
+  }
+
+  .mypage-body table th,
+  .mypage-body table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

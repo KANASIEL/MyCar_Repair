@@ -1,0 +1,280 @@
+/* ===== 전체 레이아웃 ===== */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+/* ===== 제목 / 헤더 ===== */
+.notice-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222;
+}
+
+.notice-divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* ===== 테이블 공통 ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center; /* 모든 셀은 기본적으로 중앙 정렬 */
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ===== 목록 테이블 컬럼 너비 ===== */
+.notice-table .col-no     { width: 6%; }
+.notice-table .col-title  { width: 50%; }
+.notice-table .col-writer { width: 10%; }
+.notice-table .col-date   { width: 17%; }
+.notice-table .col-views  { width: 6%; }
+
+/* ❌ 이전에 추가했던 제목 셀의 왼쪽 정렬 오버라이드 코드를 삭제합니다.
+.notice-table td:nth-child(2) { text-align: left; }
+.notice-table th:nth-child(2) { text-align: left; }
+*/
+
+.notice-row:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- 목록 제목 링크 스타일 --- */
+.notice-link {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    /* ⚠️ 제목 텍스트도 중앙 정렬이 되도록,
+       링크 자체의 정렬 속성을 제거하거나 center를 따르게 둡니다. */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notice-link:hover {
+    text-decoration: underline;
+    color: #007acc;
+}
+/* ---------------------------------- */
+
+
+/* ===== 상세보기 ===== */
+.notice-view-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* --- 상세보기 메타 정보 --- */
+.notice-view-meta {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    color: #777;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    margin-bottom: 20px;
+}
+
+.notice-view-meta span {
+    margin-left: 15px;
+}
+/* ---------------------------------- */
+
+.notice-view-content {
+    padding: 20px;
+    line-height: 1.6;
+    min-height: 180px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* ===== 작성/수정 폼 ===== */
+.notice-write-table,
+.notice-modify-table {
+    margin-top: 20px;
+}
+
+/* 입력창 스타일 */
+.input-title,
+.textarea-content {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.textarea-content {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.write-label,
+.modify-label {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+/* ===== 버튼 공통 ===== */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px 4px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #ccc;
+}
+
+#notice-actions {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+
+/* 버튼 색상 강조 */
+.btn-submit { background-color: #444; color: #fff; }
+.btn-submit:hover { background-color: #333; }
+.btn-cancel { background-color: #666; color: #fff; }
+.btn-cancel:hover { background-color: #555; }
+.btn-list   { background-color: #888; color: #fff; }
+.btn-list:hover { background-color: #777; }
+.btn-modify { background-color: #888; color: #fff; }
+.btn-modify:hover { background-color: #777; }
+.btn-delete { background-color: #e63946; color: #fff; }
+.btn-delete:hover { background-color: #c92a2a; }
+
+/* ===== 페이징 ===== */
+.pagination-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 6px;
+}
+
+.pagination-item a {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pagination-item a:hover {
+    background-color: #ddd;
+}
+
+/* --- 현재 페이지 버튼 강조 스타일 --- */
+.pagination-item.active a {
+    background-color: #007acc;
+    color: #fff;
+    border-color: #007acc;
+    font-weight: bold;
+}
+
+.pagination-item.active a:hover {
+    background-color: #007acc;
+    color: #fff;
+}
+/* ----------------------------------------- */
+
+
+/* ===================== 검색 폼 ===================== */
+#searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    max-width: 100%;
+}
+
+#searchForm select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    min-width: 140px;
+}
+
+#searchForm button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#searchForm button:hover {
+    background-color: #005b9f;
+}
+
+#searchForm input[name="keyword"] {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    min-width: 200px;
+    flex: 0;
+}

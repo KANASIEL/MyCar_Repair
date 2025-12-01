@@ -1,0 +1,250 @@
+/* InquiryView.css - 완전 독립형 스타일 (수정됨) */
+
+.view-page {
+    min-height: 100vh;
+    background: #fff;
+    /* 상단 패딩 증가 */
+    padding: 60px 20px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.view-container {
+    /* 최대 너비 추가 및 라운딩 조정 */
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    /* 그림자 강화 */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.view-header {
+    /* 패딩 조정 */
+    padding: 45px 50px 30px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.view-title {
+    /* 폰트 크기 조정 */
+    font-size: 30px;
+    font-weight: 700;
+    color: #222222;
+    /* 마진 조정 */
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.view-meta {
+    color: #666666;
+    /* 폰트 크기 미세 조정 */
+    font-size: 14.5px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.view-divider {
+    border: none;
+    border-top: 2px solid #f0f0f0;
+    margin: 0;
+}
+
+.view-content-section {
+    /* 수직 패딩 증가 */
+    padding: 50px;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #333333;
+}
+
+.view-content {
+    /* 최소 높이 증가 */
+    min-height: 250px;
+    background: #fafafa;
+    /* 패딩 증가 */
+    padding: 35px;
+    /* 라운딩 증가 */
+    border-radius: 14px;
+    border: 1px dashed #dddddd;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.view-reply {
+    background: #f8fbff;
+    border-top: 1px solid #e3f2fd;
+    /* 수직 패딩 증가 */
+    padding: 50px;
+}
+
+.view-reply-title {
+    /* 폰트 크기 증가 */
+    font-size: 24px;
+    font-weight: 700;
+    color: #007acc;
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reply-status {
+    font-size: 14px;
+    color: #666666;
+    font-weight: normal;
+}
+
+.view-reply-content {
+    background: white;
+    /* 패딩 증가 */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    line-height: 1.8;
+    /* 폰트 크기 미세 조정 */
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.view-no-reply {
+    color: #999999;
+    font-style: italic;
+    text-align: center;
+    padding: 40px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px dashed #dddddd;
+}
+
+.view-reply-date {
+    /* 마진 증가 */
+    margin-top: 20px;
+    color: #666666;
+    font-size: 14px;
+    text-align: right;
+}
+
+.view-reply-actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #007acc, #005b9f);
+    color: white;
+    /* 패딩 증가 */
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    /* 폰트 크기 미세 조정 */
+    font-size: 16.5px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 122, 204, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 122, 204, 0.4);
+}
+
+.view-footer {
+    /* 패딩 증가 */
+    padding: 40px 50px;
+    text-align: center;
+}
+
+.btn-back {
+    padding: 12px 32px;
+    background: white;
+    /* 테두리 조정 */
+    border: 1.5px solid #cccccc;
+    color: #555555;
+    /* 라운딩 조정 */
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.btn-back:hover {
+    background: #f8f8f8;
+    border-color: #999999;
+}
+
+.view-loading,
+.view-empty {
+    text-align: center;
+    padding: 120px 20px;
+    font-size: 18px;
+    color: #888888;
+}
+
+/* 상태 뱃지 (View용) */
+.status-badge.small {
+    /* 패딩, 폰트 크기 조정 */
+    font-size: 12px;
+    padding: 4px 10px;
+    min-width: auto;
+    border-radius: 16px;
+}
+
+.status-badge.waiting {
+    background: #fff8e1;
+    color: #d97706;
+    border: 1.5px solid #ffcd7a;
+}
+
+.status-badge.completed {
+    background: #e3f2fd;
+    color: #0069d9;
+    border: 1.5px solid #90caf9;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .view-page {
+        padding: 20px 10px;
+    }
+
+    .view-header, .view-content-section, .view-reply, .view-footer {
+        padding: 25px 20px;
+    }
+
+    .view-content {
+        padding: 25px;
+        min-height: 180px;
+    }
+
+    .view-reply-content {
+        padding: 20px;
+    }
+
+    .view-title {
+        font-size: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .status-badge.small {
+        margin-top: 8px;
+    }
+
+    .view-reply-title {
+        font-size: 20px;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}

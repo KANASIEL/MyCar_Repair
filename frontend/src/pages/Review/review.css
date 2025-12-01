@@ -1,0 +1,81 @@
+/* 리뷰 전체 감싸는 영역 */
+.review-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* 상단 토글 버튼 */
+.review-toggle {
+  background: #f2f5f9;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid #dce3e9;
+}
+
+.review-toggle:hover {
+  background: #e8eef4;
+}
+
+.review-toggle .arrow {
+  font-size: 14px;
+}
+
+/* 드롭다운 영역 기본값 (닫힘) */
+.review-dropdown {
+  max-height: 0;
+  overflow: hidden;
+
+  transition: max-height 0.35s ease;
+}
+
+/* 펼쳐짐 */
+.review-dropdown.open {
+  max-height: 1000px; /* 충분히 크게 */
+}
+
+/* 기존 form 스타일 유지 */
+.review-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;   /* 기존 16px → 8px */
+}
+
+.review-label {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.review-textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.review-button {
+  background: #1e88e5;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.review-button:hover {
+  background: #1565c0;
+}

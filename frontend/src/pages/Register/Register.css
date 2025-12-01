@@ -1,0 +1,159 @@
+/* 1. 전체 컨테이너 (흰색 박스) */
+.register-container {
+    max-width: 600px;  /* 너비를 600px로 넓게 */
+    margin: 50px auto; /* 화면 중앙 정렬 */
+    padding: 50px;     /* 내부 여백 넉넉하게 */
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+    box-sizing: border-box;
+}
+
+/* 2. 탭 메뉴 (버튼 그룹) */
+.tab-button-group {
+    display: flex;
+    gap: 10px; /* 버튼 사이 간격 */
+    margin-bottom: 40px;
+}
+
+/* 탭 버튼 기본 스타일 */
+.tab-button {
+    flex: 1; /* 너비 균등 분배 */
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #f1f3f5; /* 기본 회색 배경 */
+    color: #888;
+}
+
+/* 활성화된 탭 (파란색) */
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* 비활성 탭 마우스 올렸을 때 */
+.tab-button:hover:not(.active) {
+    background-color: #e9ecef;
+}
+
+/* 3. 제목 스타일 */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+/* 4. 입력 필드 그룹 (라벨 + 인풋) */
+.form-group {
+    margin-bottom: 25px; /* 그룹 간 간격 넓힘 */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 16px;
+}
+
+/* 기본 입력창 (input) */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px; /* 내부 여백 증가 */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    font-family: inherit;
+}
+
+/* 입력창 포커스 효과 */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-group textarea {
+    width: 90% !important;     /* 가로 꽉 채움 */
+    height: 200px !important;   /* 높이 200px 고정 */
+    
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.6;           /* 줄 간격 넓게 */
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    resize: vertical;           /* 세로로만 크기 조절 가능 */
+}
+
+/* 6. 영업 시간 그룹 (가로 배치용) */
+.form-time-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.time-select {
+    width: 120px !important; /* 드롭다운 너비 고정 */
+}
+
+.time-input {
+    width: 80px !important;  /* 시간 입력칸 너비 고정 */
+    text-align: center;
+}
+
+.time-unit {
+    font-size: 15px;
+    color: #666;
+    white-space: nowrap;
+}
+
+/* 7. 가입하기 버튼 */
+.submit-button {
+    width: 100%;
+    padding: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* 8. 하단 링크 (로그인 하러가기) */
+.link-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+    font-size: 15px;
+}
+
+.link-text a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+}

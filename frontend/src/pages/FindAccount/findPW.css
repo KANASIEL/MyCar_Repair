@@ -1,0 +1,108 @@
+.findpw-table {
+  width: 650px;
+  height: 560px;
+  margin: 150px auto 0 auto;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 120px;
+  margin-top: 100px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.09);
+}
+
+.tr-center {
+  text-align: center;
+}
+
+/* 아이디 입력칸 */
+.findpw-account-id {
+  position: relative;
+  top: 32px;
+  width: 450px;
+  height: 55px;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+/* 이메일 입력칸 */
+.findpw-email {
+  position: relative;
+  bottom: 8px;
+  width: 450px;
+  height: 55px;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+/* 전화번호 입력칸 */
+.findpw-phone {
+  position: relative;
+  top: 12px;
+  width: 450px;
+  height: 55px;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+/* 확인 버튼 */
+.findpw-submit {
+  position: relative;
+  width: 450px;
+  height: 50px;
+  bottom: 15px;
+  font-size: 17px;
+  background-color: #C94C4C;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+.findpw-submit:hover {
+  cursor: pointer;
+}
+
+/* 로그인 페이지 이동 버튼 */
+.findpw-login-btn {
+  position: relative;
+  width: 450px;
+  height: 50px;
+  font-size: 17px;
+  bottom: 31px;
+  background-color: #555;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+.findpw-login-btn:hover {
+  cursor: pointer;
+}
+
+/* 제목 */
+.findpw-title {
+  position: relative;
+  top: 25px;
+  font-size: 35px;
+  font-weight: 500;
+  bottom: 20px;
+}
+
+/* 안내문 */
+.findpw-desc {
+  position: relative;
+  top: 10px;
+}
+
+/* 하단 링크 */
+.findpw-bottom-btns {
+  position: relative;
+  bottom: 30px;
+  color: #555;
+}
+
+/* 링크 색상 */
+.findpw-link {
+  color: #444;
+}
+
+/* 페이지 레이아웃 */
+

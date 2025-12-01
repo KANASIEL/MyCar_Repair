@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.ReservationDAO">
+
+<insert id="insertReservation" parameterType="com.boot.dto.ReservationDTO">
+    <selectKey keyProperty="rsvNo" resultType="int" order="BEFORE">
+        SELECT SEQ_RSV_NO.NEXTVAL FROM DUAL
+    </selectKey>
+    
+    INSERT INTO TBL_RESERVATION (
+        rsv_no, account_id, store_id, rsv_date, car_model, service_type, request_memo
+    ) VALUES (
+        #{rsvNo}, 
+        #{accountId}, 
+        #{storeId}, 
+        #{rsvDate}, 
+        #{carModel}, 
+        #{serviceType}, 
+        #{requestMemo}
+    )
+</insert>
+
+<select id="getListByAccountId" resultType="com.boot.dto.ReservationDTO">
+    SELECT
+        R.RSV_NO AS rsvNo,                  
+        R.RSV_DATE AS rsvDate,              
+        R.CAR_MODEL AS carModel,           
+        R.SERVICE_TYPE AS serviceType,      
+        R.REQUEST_MEMO AS requestMemo,      
+        R.STATUS,                           
+        R.ACCOUNT_ID AS accountId,          -- ⭐️ JOIN을 통해 업체 정보 조회 ⭐️
+        S.STORE_NAME AS storeName,          
+        S.ADDRESS AS storeAddress           
+    FROM
+        TBL_RESERVATION R
+	JOIN
+    	TBL_STORE S ON R.STORE_ID = S.STORE_ID 
+    WHERE
+    	R.ACCOUNT_ID = #{accountId}             
+    ORDER BY
+    	R.RSV_DATE DESC                         
+</select>
+
+<select id="getReservationByRsvNo" resultType="com.boot.dto.ReservationDTO">
+    SELECT
+        R.RSV_NO AS rsvNo,
+        R.ACCOUNT_ID AS accountId,     
+        R.STORE_ID AS storeId,
+        R.RSV_DATE AS rsvDate,
+        R.CAR_MODEL AS carModel,       
+        R.SERVICE_TYPE AS serviceType,
+        
+        R.REQUEST_MEMO AS requestMemo,  
+        R.STATUS,
+        S.STORE_NAME AS storeName,
+        S.ADDRESS AS storeAddress
+    FROM
+        TBL_RESERVATION R
+    JOIN
+        TBL_STORE S ON R.STORE_ID = S.STORE_ID
+    WHERE
+        R.RSV_NO = #{rsvNo}
+</select>
+
+<update id="modifyReservation" parameterType="com.boot.dto.ReservationDTO">
+    UPDATE TBL_RESERVATION
+    SET 
+        RSV_DATE = #{rsvDate},
+        CAR_MODEL = #{carModel},
+        SERVICE_TYPE = #{serviceType},
+        REQUEST_MEMO = #{requestMemo},
+        STATUS = 'PENDING'  WHERE 
+        RSV_NO = #{rsvNo}
+        AND STATUS = 'PENDING'  
+</update>
+
+<update id="updateReservationStatus">
+    UPDATE TBL_RESERVATION
+    SET 
+        STATUS = #{status}  WHERE 
+        RSV_NO = #{rsvNo}   AND STATUS = 'PENDING' 
+</update>
+
+</mapper>

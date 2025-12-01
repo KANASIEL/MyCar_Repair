@@ -1,0 +1,111 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.FaQDAO">
+    
+    <select id="contentView" resultType="com.boot.dto.FaQDTO" parameterType="int">
+        SELECT 
+            FAQ_NO AS faqNo, 
+            FAQ_TITLE AS faqTitle, 
+            FAQ_CONTENT AS faqContent,
+            TO_CHAR(FAQ_CREATED, 'YYYY"년" MM"월" DD"일" HH24"시"MI"분"') AS faqCreated,
+            FAQ_HIT AS faqHit
+        FROM 
+            TBL_FAQ 
+        WHERE 
+            FAQ_NO = #{param1}
+    </select>
+    
+    <update id="updateViewCount" parameterType="int">
+        UPDATE TBL_FAQ
+        SET FAQ_HIT = FAQ_HIT + 1
+        WHERE FAQ_NO = #{param1}
+    </update>
+
+	<update id="modifyFaq">
+    	update TBL_FAQ set FAQ_TITLE=#{faqTitle}, FAQ_CONTENT=#{faqContent} 
+    	 where FAQ_NO=#{faq_no}
+    </update>
+    
+    <delete id="deleteFaq">
+    	delete from TBL_FAQ where FAQ_NO=#{faq_no}
+    </delete>
+
+ 	<insert id="writeFaq">
+    	insert into TBL_FAQ(FAQ_NO, FAQ_TITLE, FAQ_CONTENT) values(SEQ_FAQ_NO.NEXTVAL,#{faqTitle},#{faqContent})
+    </insert>
+	
+	<select id="getFaqList" resultType="com.boot.dto.FaQDTO">
+    <![CDATA[
+    SELECT * FROM (
+        SELECT ROWNUM rn, A.* FROM (
+            SELECT FAQ_NO AS faqNo, FAQ_TITLE AS faqTitle, FAQ_CONTENT AS faqContent
+            FROM TBL_FAQ 
+    ]]>
+    
+    <where>
+        <if test="keyword != null and keyword != '' and type != null"> 
+            (
+            <if test="type == 'T'.toString()">
+                 FAQ_TITLE LIKE '%' || #{keyword} || '%'
+            </if>
+            <if test="type == 'C'.toString()">
+                 FAQ_CONTENT LIKE '%' || #{keyword} || '%'
+            </if>
+            <if test="type == 'TC'.toString()">
+                 FAQ_TITLE LIKE '%' || #{keyword} || '%' OR FAQ_CONTENT LIKE '%' || #{keyword} || '%'
+            </if>
+            )
+        </if>
+    </where>
+
+    <![CDATA[
+            ORDER BY FAQ_NO DESC
+        ) A
+    )
+    WHERE rn > (#{pageNum} - 1) * #{amount} AND rn <= #{pageNum} * #{amount}
+    ]]>
+</select>
+	
+	<select id="getTotal" resultType="int">
+    SELECT COUNT(*) FROM TBL_FAQ
+    WHERE 1=1
+    
+    <if test="keyword != null and keyword != ''">
+        AND (
+        <if test="type == 'T'.toString()">
+            FAQ_TITLE LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="type == 'C'.toString()">
+            FAQ_CONTENT LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="type == 'TC'.toString()">
+            FAQ_TITLE LIKE '%' || #{keyword} || '%' OR FAQ_CONTENT LIKE '%' || #{keyword} || '%'
+        </if>
+        )
+    </if>
+</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

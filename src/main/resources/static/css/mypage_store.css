@@ -1,0 +1,27 @@
+@charset 'utf-8';
+
+/* 업체 마이페이지 색상 포인트 */
+.mypage-body .mypage-section h3 {
+  border-left-color: #2ecc71;
+}
+
+/* 예약 승인/거절 버튼 */
+.mypage-body .btn-sub.approve {
+  background-color: #e9f9ef;
+  color: #27ae60;
+  border-color: #bceacb;
+}
+
+.mypage-body .btn-sub.reject {
+  background-color: #fdecea;
+  color: #c0392b;
+  border-color: #f5b7b1;
+}
+
+.mypage-body .btn-sub.approve:hover {
+  background-color: #d5f5e3;
+}
+
+.mypage-body .btn-sub.reject:hover {
+  background-color: #f9d6d2;
+}

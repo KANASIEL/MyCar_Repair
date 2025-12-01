@@ -1,0 +1,164 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.MaintenanceDAO">
+
+    <!-- 내 차량 목록 조회 -->
+    <select id="getMyCars" resultType="com.boot.dto.MypageDTO">
+        SELECT *
+        FROM tbl_mypage
+        WHERE account_id = #{account_id}
+    </select>
+
+    <!-- 특정 차량의 정비 이력 조회 -->
+    <select id="getRepairHistory" resultType="com.boot.dto.RepairHistoryDTO">
+        SELECT *
+        FROM repair_history
+        WHERE car_number = #{car_number}
+    </select>
+
+    <insert id="addRepairHistory" parameterType="com.boot.dto.RepairHistoryDTO">
+
+        <selectKey keyProperty="repair_id" resultType="int" order="BEFORE">
+            SELECT repair_history_seq.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT INTO repair_history (
+        repair_id, car_number, repair_date, mileage,
+        description, shop_name, cost, memo
+        )
+        VALUES (
+        #{repair_id}, #{car_number},
+        TO_DATE(#{repair_date}, 'YYYY-MM-DD'),
+        #{mileage},
+        #{description},
+        #{shop_name},
+        #{cost},
+        #{memo}
+        )
+    </insert>
+
+    <!-- 소모품 전체 목록 조회 -->
+    <select id="getAllConsumableItems" resultType="com.boot.dto.ConsumableItemDTO">
+        SELECT *
+        FROM consumable_item
+    </select>
+
+    <!-- 특정 차량의 소모품 교체 로그 조회 -->
+    <select id="getConsumableLogs" resultType="com.boot.dto.ConsumableLogDTO">
+        SELECT *
+        FROM consumable_log
+        WHERE car_number = #{car_number}
+    </select>
+
+    <insert id="addConsumableLog" parameterType="com.boot.dto.ConsumableLogDTO">
+
+        <selectKey keyProperty="replace_id" resultType="int" order="BEFORE">
+            SELECT consumable_log_seq.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT INTO consumable_log (
+        replace_id, car_number, consumable_key, replacement_date, replacement_mileage,
+        shop_name, cost, memo
+        )
+        VALUES (
+        #{replace_id}, #{car_number},
+        #{consumable_key},
+        TO_DATE(#{replacement_date}, 'YYYY-MM-DD'),
+        #{replacement_mileage},
+        #{shop_name},
+        #{cost},
+        #{memo}
+        )
+    </insert>
+
+    <!-- 정비 이력 삭제 -->
+    <delete id="deleteRepairHistory" parameterType="int">
+        DELETE FROM repair_history WHERE repair_id = #{repair_id}
+    </delete>
+
+    <!-- 소모품 교체 로그 삭제 -->
+    <delete id="deleteConsumableLog" parameterType="int">
+        DELETE FROM consumable_log WHERE replace_id = #{replace_id}
+    </delete>
+
+    <insert id="addRepairHistoryFromConsumableLog" parameterType="com.boot.dto.ConsumableLogDTO">
+
+        INSERT INTO repair_history (
+        repair_id, car_number, repair_date, mileage,
+        description, shop_name, cost, memo
+        )
+        SELECT
+        repair_history_seq.NEXTVAL,
+        #{car_number},
+        TO_DATE(#{replacement_date}, 'YYYY-MM-DD'),
+        #{replacement_mileage},
+        c.name || ' 교체',
+        #{shop_name},
+        #{cost},
+        #{memo}
+
+        FROM consumable_item c
+        WHERE c.consumable_key = #{consumable_key}
+    </insert>
+
+    <!-- 1. 차량번호로 즐겨찾기 목록 전체 가져오기 -->
+    <select id="getFavoritesByCarNumber" parameterType="string" resultType="com.boot.dto.MaintenanceFavoritesDTO">
+        SELECT
+        car_number,
+        consumable_key,
+        fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        ORDER BY fav_order ASC
+    </select>
+
+    <!-- 2. 해당 항목이 즐겨찾기 되어 있는지 확인 -->
+    <select id="isFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO" resultType="int">
+        SELECT COUNT(*)
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </select>
+
+    <!-- 3. 현재 차량에서 가장 큰 fav_order + 1 반환 (새로 추가할 순서) -->
+    <select id="getMaxOrder" parameterType="string" resultType="int">
+        SELECT NVL(MAX(fav_order), 0) + 1
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+    </select>
+
+    <!-- 4. 즐겨찾기 추가 -->
+    <insert id="insertFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        INSERT INTO maintenance_favorites (car_number, consumable_key, fav_order)
+        VALUES (#{car_number}, #{consumable_key}, #{fav_order})
+    </insert>
+
+    <!-- 5. 즐겨찾기 삭제 -->
+    <delete id="deleteFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        DELETE FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </delete>
+
+    <!-- 6. 삭제 후 순서 재정렬 (삭제된 항목보다 뒤에 있는 애들만 -1) -->
+    <update id="reorderAfterDelete" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        UPDATE maintenance_favorites
+        SET fav_order = fav_order - 1
+        WHERE car_number = #{car_number}
+        AND fav_order > (
+        SELECT fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+        )
+    </update>
+
+    <!-- 보너스: 삭제 직전에 현재 fav_order 값만 딱 가져오기 (안정성 200% 버전) -->
+    <select id="getCurrentOrder" parameterType="com.boot.dto.MaintenanceFavoritesDTO" resultType="int">
+        SELECT fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </select>
+
+</mapper>

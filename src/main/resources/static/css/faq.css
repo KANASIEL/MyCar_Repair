@@ -1,0 +1,421 @@
+/*
+================================
+ FAQ 페이지 스타일
+================================
+*/
+
+/* FAQ 콘텐츠 전체 컨테이너 */
+.faq-container {
+    width: 100%;
+    max-width: 1180px; /* 메인 콘텐츠 너비 */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.faq-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.faq-container p {
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ================================
+ 2. 검색창 스타일 변경
+================================
+*/
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* 테이블과 간격 */
+
+    /* 검색창을 하나의 캡슐 형태로 감싸기 */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* 둥근 모서리 */
+    width: 500px; /* 검색창 전체 너비 */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* 둥근 모서리 적용을 위해 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 은은한 그림자 */
+}
+
+/* select (검색 타입) */
+/*
+================================
+ FAQ 목록(faq.jsp) 상단 버튼/검색창
+================================
+*/
+
+/* 1. 검색 폼과 글쓰기 버튼을 감싸는 영역 */
+.faq-controls-group {
+    display: flex; /* 자식 요소(검색 폼, 글쓰기 버튼)를 가로로 배치 */
+    justify-content: space-between; /* 양쪽 끝으로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-bottom: 20px; /* 테이블과의 간격 */
+}
+
+/* 2. 검색 폼 (왼쪽 정렬) */
+#searchForm {
+    display: flex;
+    gap: 5px; /* 검색창 내부 요소들 간격 */
+}
+
+#searchForm select,
+#searchForm input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#searchForm input[type="text"] {
+    width: 300px;
+}
+
+/* 3. 검색(Search) 버튼 스타일 */
+#searchBtn {
+    padding: 8px 15px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+#searchBtn:hover {
+    background-color: #333;
+}
+
+/* 4. 글쓰기(Write) 버튼 스타일 (오른쪽 정렬) */
+.btn-write {
+    display: inline-block;
+    padding: 10px 25px; /* 상세 페이지 버튼과 동일한 크기 */
+    margin: 0 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #555; /* 상세 페이지 버튼과 동일한 색상 */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-write:hover {
+    background-color: #333;
+}
+
+/* 2. 모든 버튼의 공통 스타일 (목록, 수정, 삭제) */
+.btn-list,
+.btn-action,
+.btn-delete {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0 5px; /* 버튼 사이 간격 */
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #555; /* 기본 배경색 (회색) */
+    text-decoration: none;
+    border: none; /* <button> 태그의 기본 테두리 제거 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* 3. 공통 호버(Hover) 효과 */
+.btn-list:hover,
+.btn-action:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* 4. [중요] 삭제 버튼만 색상 변경 */
+.btn-delete {
+    background-color: #d9534f; /* 붉은색 계열 */
+    border-color: #d43f3a;
+}
+
+/* FAQ 테이블 스타일 */
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+/* ... (테이블 상세 스타일은 이전과 동일) ... */
+.faq-table th,
+.faq-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.faq-table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+}
+.faq-table .col-num { width: 10%; }
+.faq-table .col-title { width: 30%; }
+.faq-table .col-content { width: 60%; }
+.faq-table td:first-child {
+    text-align: center;
+    color: #888;
+}
+
+/* ================================
+ 1. 페이지네이션 스타일 변경
+================================
+*/
+.div_page {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.div_page ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 기본 페이지 번호 링크 */
+.div_page .paginate_button a {
+    display: block;
+    padding: 8px 12px;
+    margin: 0 3px;
+    color: #777; /* 기본 글자색 (회색) */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.div_page .paginate_button a:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* [수정] 현재 페이지 활성화 스타일 */
+.div_page .paginate_button.active a {
+    color: #333; /* 포인트 컬러 (빨간색 계열) */
+    font-weight: bold; /* 굵게 */
+
+    /* * 배경색을 원하시면 이 부분을 활성화하세요
+     * background-color: #f0f0f0;
+     */
+}
+/* 상세 보기 전체 컨테이너 */
+.faq-detail-container {
+    width: 100%;
+    max-width: 1180px; /* 메인 콘텐츠 너비 */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* "FAQ 상세 보기" h2 제목 */
+.faq-detail-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px; /* 제목과 내용 사이 간격 */
+}
+
+/* 질문(Title) 영역 */
+.faq-detail-title {
+    display: flex;
+    align-items: center;
+    padding: 25px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f9f9f9; /* 질문 영역 배경색 */
+    border-top: 2px solid #555;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 'Q.' 아이콘 */
+.faq-detail-title .q-icon {
+    font-weight: bold;
+    color: #d9534f; /* 포인트 컬러 (빨강) */
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/* 답변(Content) 영역 */
+.faq-detail-answer {
+    padding: 30px 20px 50px 55px; /* Q 아이콘과 왼쪽 줄 맞춤 */
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8; /* 줄 간격 */
+    border-bottom: 2px solid #555;
+
+    /* DB에 저장된 줄바꿈(엔터)을 그대로 보이게 함 */
+    white-space: pre-wrap;
+
+    /* 내용이 길어질 경우 최소 높이 보장 */
+    min-height: 200px;
+}
+
+/* 버튼 영역 (목록으로) */
+.button-area {
+    text-align: center; /* 버튼 가운데 정렬 */
+    margin-top: 30px;
+}
+
+.btn-list 
+, #btnSubmit{
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.btn-list:hover {
+    background-color: #333;
+}
+
+/*
+================================
+ FAQ 목록(faq.jsp) 링크 스타일
+================================
+*/
+
+/* .faq-table 안의 <a> 태그에 적용 */
+.faq-table a {
+    color: inherit; /* 부모(td)의 글자색을 그대로 상속받음 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 방문했던 링크(보라색)도 똑같이 처리 */
+.faq-table a:visited {
+    color: inherit;
+}
+
+/* (선택 사항) 마우스를 올렸을 때만 밑줄을 표시해서 링크임을 알려줌 */
+.faq-table a:hover {
+    text-decoration: underline;
+    color: #000; /* 마우스 올렸을 때 색상 (선택 사항) */
+}
+/*
+================================
+ FAQ 작성/수정 폼 스타일 (form-page)
+================================
+*/
+
+/* 폼 페이지 컨테이너 */
+.faq-container.form-page {
+    width: 100%;
+    max-width: 900px; /* 폼 너비를 조금 넓게 설정 */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.faq-container.form-page h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px; /* 제목과 폼 사이 간격 */
+}
+
+/* 폼 그룹 (라벨 + 인풋) */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+}
+
+.form-group textarea {
+    resize: vertical; /* 세로 크기만 조절 가능하도록 */
+    min-height: 200px; /* 최소 높이 */
+}
+
+/* 버튼 영역 */
+.button-area.submit-group {
+    text-align: center; /* 버튼 가운데 정렬 */
+    margin-top: 30px;
+}
+
+/* * 등록 버튼(#btnSubmit) 스타일
+*/
+#btnSubmit {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #555; /* 기본 버튼 색상 */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btnSubmit:hover {
+    background-color: #333;
+}
+	
+	/* ==================================
+	 FAQ 상세 보기 (faq_view.jsp) 메타 정보 스타일
+	================================== */
+
+	/* 작성일/조회수 영역 스타일 */
+	.faq-detail-meta {
+	    padding: 10px 20px;
+	    background-color: #fcfcfc; /* 질문 배경색과 대비 */
+	    border-bottom: 1px solid #ddd;
+	    font-size: 14px;
+	    color: #888;
+	    
+	    display: flex; /* 가로로 정렬 */
+	    justify-content: flex-end; /* 오른쪽 끝 정렬 */
+	    gap: 20px; /* 작성일과 조회수 사이 간격 */
+	}
+
+	/* 질문(Title) 영역 수정: 제목 영역의 border-bottom을 제거하고 meta가 갖도록 함 */
+	.faq-detail-title {
+	    /* ... (기존 스타일) ... */
+	    border-bottom: none; /* 🚨 [수정] 이 선을 제거해야 meta와 붙습니다. */
+	}
+
+	/* 답변(Content) 영역 수정: 답변 영역의 border-top을 제거하고 meta와 붙도록 함 */
+	.faq-detail-answer {
+	    /* ... (기존 스타일) ... */
+	    padding-top: 25px; /* 윗 여백 조정 */
+	    /* border-top: none; */ /* 필요하다면 답변 영역의 윗선도 제거 */
+	}

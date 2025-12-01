@@ -1,0 +1,120 @@
+.table1{
+  width: 650px;
+  height: 560px;
+  margin: 150px auto 0 auto; /* 가운데 정렬 */
+  border: 1px solid #e0e0e0;
+  margin-bottom: 120px;
+  margin-top: 100px;
+  background-color: #ffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.09);
+}
+
+tr{
+	text-align: center;
+}
+
+/*아이디 입력칸*/
+.accountId{
+	position: relative;
+	top: 32px;
+	width: 450px;
+	height: 55px;
+	font-size: 17px;
+	padding-left: 10px;
+}
+
+/*이메일 입력칸*/
+.email{
+	position: relative;
+	bottom: 8px;
+	width: 450px;
+	height: 55px;
+	font-size: 17px;
+	padding-left: 10px;
+}
+
+/*전화번호 입력칸*/
+.phone{
+	position: relative;
+	top: 12px;
+	width: 450px;
+	height: 55px;
+	font-size: 17px;
+	padding-left: 10px;
+}
+
+/*확인버튼*/
+.find1{
+	position: relative;
+	width: 450px;
+	height: 50px;
+	bottom: 15px;
+	font-size: 17px;
+	background-color: #C94C4C;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+}
+
+.find1:hover{
+	cursor: pointer;
+}
+
+/*로그인 페이지 이동 버튼*/
+.btn2{
+	position: relative;
+	width: 450px;
+	height: 50px;
+	font-size: 17px;
+	bottom: 31px;
+	background-color: #555;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+}
+
+.btn2:hover{
+	cursor: pointer;
+}
+
+
+.trh1{
+	position: relative;
+	top: 25px;
+	font-size: 35px;
+	font-weight: 500;
+	bottom: 20px;
+}
+
+
+.btn3{
+	position: relative;
+	bottom: 30px;
+	color: #555;
+}
+
+
+main {
+  background-color: #f9f9f9;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.td1{
+	position: relative;
+	top: 10px;
+}
+
+.link{
+	color: #444;
+}
+
+
+
+
+

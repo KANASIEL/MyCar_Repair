@@ -1,0 +1,367 @@
+/* 예약 폼 컨테이너 */
+.reservation-container {
+    max-width: 600px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+.reservation-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* 테이블 스타일 */
+.reservation-form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.reservation-form-table th, 
+.reservation-form-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.reservation-form-table th {
+    background-color: #f8f8f8;
+    width: 30%;
+    font-weight: 600;
+    color: #555;
+}
+
+.reservation-form-table td input[type="text"],
+.reservation-form-table td input[type="datetime-local"],
+.reservation-form-table td select,
+.reservation-form-table td textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.reservation-form-table td textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* 버튼 그룹 */
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
+
+.button-group .btn-submit {
+    background-color: #333; /* 메인 색상 */
+    color: white;
+}
+
+.button-group .btn-cancel {
+    background-color: #ccc;
+    color: #333;
+}
+
+.button-group .btn-submit:hover {
+    background-color: #555;
+}
+
+.button-group .btn-cancel:hover {
+    background-color: #bbb;
+}
+
+.history-container {
+    max-width: 1200px; /* 조회 페이지는 넓게 사용 */
+    width: 95%;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    
+    /* ⭐️ 테이블 내용이 넘칠 경우 스크롤 허용 (가로 스크롤 문제 해결) */
+    overflow-x: auto; 
+}
+
+.history-container h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* 2. 테이블 스타일 (폼 스타일 재활용) */
+.history-container .reservation-table {
+    width: 100%; 
+    min-width: 800px; /* ⭐️ 작은 화면에서도 테이블이 깨지지 않도록 최소 너비 설정 */
+    border-collapse: collapse;
+}
+
+
+.reservation-table th, 
+.reservation-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center; /* ⭐️ 텍스트를 중앙 정렬로 변경 */
+    white-space: nowrap; /* 내용이 길어도 줄바꿈 방지 */
+}
+
+/* 3. 테이블 헤더 스타일 */
+.reservation-table thead th {
+    background-color: #333; /* ⭐️ 헤더 배경색을 어둡게 변경하여 명확하게 구분 */
+    color: white; /* ⭐️ 헤더 텍스트 색상 */
+    font-weight: bold;
+    position: sticky; /* ⭐️ 가로 스크롤 시 헤더가 따라오도록 설정 (선택 사항) */
+    top: 0;
+    z-index: 10;
+}
+
+/* 4. 상태 및 버튼 스타일 (추가) */
+.reservation-table td {
+    vertical-align: middle;
+}
+
+.reservation-table td .btn-modify,
+.reservation-table td .btn-cancel,
+.reservation-table td .btn-detail {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.reservation-table td .btn-modify {
+    background-color: #007bff;
+    color: white;
+}
+.reservation-table td .btn-modify:hover {
+    background-color: #0056b3;
+}
+
+.reservation-table td .btn-cancel {
+    background-color: #dc3545; /* 빨간색 (취소) */
+    color: white;
+}
+.reservation-table td .btn-cancel:hover {
+    background-color: #c82333;
+}
+
+/* 5. 데이터 없음 메시지 */
+.history-container .no-data {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: #777;
+    border: 1px dashed #ccc;
+    margin-top: 20px;
+}
+
+/* ⭐️ 상세보기 버튼 스타일 정의 */
+.reservation-table td .btn-detail {
+    background-color: #6c757d; /* 진한 회색 */
+    color: white;
+}
+
+/* 마우스 호버 시 효과 */
+.reservation-table td .btn-detail:hover {
+    background-color: #5a6268; /* 조금 더 어두운 회색 */
+}
+
+/* 1. 컨테이너 기본 스타일 (예약 폼과 유사한 중앙 집중형) */
+.reservation-detail-container {
+    max-width: 800px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* 2. 제목 스타일 */
+.reservation-detail-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+    border-bottom: 3px solid #555;
+    padding-bottom: 10px;
+}
+
+/* 3. 상세 정보 박스 스타일 */
+.detail-box {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    
+    /* 항목을 2열로 깔끔하게 배치 (선택 사항) */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+}
+
+.detail-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.detail-box strong {
+    display: inline-block;
+    width: 100px; /* 라벨 너비 고정 */
+    color: #555;
+    font-weight: 600;
+}
+
+/* 4. 요청 사항 섹션 스타일 */
+.request-note-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+}
+
+.request-note-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    border: none;
+    padding-bottom: 0;
+}
+
+.request-note-content {
+    min-height: 80px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    white-space: pre-wrap; /* 줄바꿈 유지 */
+    color: #444;
+    font-style: italic;
+}
+
+/* 5. 버튼 그룹 스타일 */
+.action-buttons {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.2s;
+    min-width: 120px;
+}
+
+/* 수정 버튼 (파란색) */
+.action-buttons .btn-modify {
+    background-color: #007bff;
+    color: white;
+}
+.action-buttons .btn-modify:hover {
+    background-color: #0056b3;
+}
+
+/* 취소 버튼 (빨간색) */
+.action-buttons .btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+.action-buttons .btn-cancel:hover {
+    background-color: #c82333;
+}
+
+/* 목록으로 돌아가기 버튼 (중립/회색) */
+.action-buttons .btn-back {
+    background-color: #6c757d;
+    color: white;
+}
+.action-buttons .btn-back:hover {
+    background-color: #5a6268;
+}
+
+/* 상태별 색상 (PENDING) */
+.detail-box .status-pending {
+    color: orange;
+    font-weight: bold;
+}
+
+/* reservationhistory.css 에 추가할 스타일 */
+
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #f8f8f8;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    margin: 0 3px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.pagination button.active {
+    background-color: #333; /* 현재 페이지 색상 */
+    color: white;
+    font-weight: bold;
+    border-color: #333;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-review{
+	background-color: #007bff;
+	color: white;
+}
+
+.btn-review:hover{
+	background-color: #0056b3;
+}

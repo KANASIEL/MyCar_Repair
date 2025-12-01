@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.RecommendDAO">
+
+    <select id="selectMapList" resultMap="storeResultMap">
+        SELECT store_id, LATITUDE, LONGITUDE, address, description, OPENING_HOURS
+        FROM tbl_store
+        WHERE LATITUDE IS NOT NULL AND LONGITUDE IS NOT NULL
+    </select>
+
+    <resultMap id="storeResultMap" type="RecommendDTO">
+        <result column="store_id" property="storeId"/>
+        <result column="LATITUDE" property="latitude"/>
+        <result column="LONGITUDE" property="longitude"/>
+        <result column="address" property="address"/>
+        <result column="description" property="description"/>
+        <result column="OPENING_HOURS" property="openingHours"/>
+    </resultMap>
+
+</mapper>

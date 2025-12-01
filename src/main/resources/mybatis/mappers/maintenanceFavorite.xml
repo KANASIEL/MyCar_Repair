@@ -1,0 +1,65 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.MaintenanceFavoriteDAO">
+
+    <!-- 1. 차량번호로 즐겨찾기 목록 전체 가져오기 -->
+    <select id="getFavoritesByCarNumber" parameterType="string" resultType="com.boot.dto.MaintenanceFavoritesDTO">
+        SELECT
+        car_number,
+        consumable_key,
+        fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        ORDER BY fav_order ASC
+    </select>
+
+    <!-- 2. 해당 항목이 즐겨찾기 되어 있는지 확인 -->
+    <select id="isFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO" resultType="int">
+        SELECT COUNT(*)
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </select>
+
+    <!-- 3. 현재 차량에서 가장 큰 fav_order + 1 반환 (새로 추가할 순서) -->
+    <select id="getMaxOrder" parameterType="string" resultType="int">
+        SELECT NVL(MAX(fav_order), 0) + 1
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+    </select>
+
+    <!-- 4. 즐겨찾기 추가 -->
+    <insert id="insertFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        INSERT INTO maintenance_favorites (car_number, consumable_key, fav_order)
+        VALUES (#{car_number}, #{consumable_key}, #{fav_order})
+    </insert>
+
+    <!-- 5. 즐겨찾기 삭제 -->
+    <delete id="deleteFavorite" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        DELETE FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </delete>
+
+    <!-- 6. 삭제 후 순서 재정렬 (삭제된 항목보다 뒤에 있는 애들만 -1) -->
+    <update id="reorderAfterDelete" parameterType="com.boot.dto.MaintenanceFavoritesDTO">
+        UPDATE maintenance_favorites
+        SET fav_order = fav_order - 1
+        WHERE car_number = #{car_number}
+        AND fav_order > (
+        SELECT fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+        )
+    </update>
+
+    <!-- 보너스: 삭제 직전에 현재 fav_order 값만 딱 가져오기 (안정성 200% 버전) -->
+    <select id="getCurrentOrder" parameterType="com.boot.dto.MaintenanceFavoritesDTO" resultType="int">
+        SELECT fav_order
+        FROM maintenance_favorites
+        WHERE car_number = #{car_number}
+        AND consumable_key = #{consumable_key}
+    </select>
+
+</mapper>

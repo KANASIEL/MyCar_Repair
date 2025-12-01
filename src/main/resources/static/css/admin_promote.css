@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+/* ============================================= */
+/* 권한 승급 폼 섹션 (register.css와 유사하게) */
+/* ============================================= */
+.promote-container {
+    width: 100%;
+    padding: 100px 0;
+    background-color: #f9f9f9;
+}
+
+/* 폼을 감싸는 박스 */
+.promote-form {
+    width: 1180px;
+    max-width: 680px; 
+    margin: 0 auto;
+    padding: 40px 50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* "관리자 권한 승급" 제목 */
+.promote-form h1 {
+    font: bold 24px/1 "arial";
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 안내 문구 스타일 */
+.guide-text {
+    text-align: center;
+    margin-bottom: 25px;
+    font: 15px/1.6 "arial"; /* 줄 간격 추가 */
+    color: #666;
+    background-color: #f7f7f7; /* 배경색 추가 */
+    padding: 15px;
+    border-radius: 5px;
+}
+.guide-text .user-id {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* 폼 그룹 (라벨 + 인풋) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font: bold 15px/1 "arial";
+    color: #666;
+}
+
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "arial", sans-serif;
+    box-sizing: border-box;
+}
+
+/* 승급하기 버튼 */
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+
+    background: #555; 
+    color: #fff;
+
+    font: bold 16px/1 "arial";
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background: #333;
+}
+
+/* 메시지 (에러, 성공) */
+.message {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font: 14px/1.4 "arial";
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

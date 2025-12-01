@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.Mypage_AdminDAO">
+
+    <select id="getAllUsers" resultType="com.boot.dto.AccountDTO">
+        SELECT
+        user_name       AS userName,
+        account_id      AS accountId,
+        email,
+        phone_number    AS phoneNumber,
+        reg_date        AS regDate,
+        account_status  AS account_status,
+        account_role    AS accountRole
+        FROM tbl_account
+        ORDER BY reg_date DESC
+    </select>
+
+    <select id="getPendingStores" resultType="com.boot.dto.StoreDTO">
+        SELECT
+        store_id        AS storeId,
+        email,
+        phone_number    AS phoneNumber,
+        reg_date        AS regDate,
+        store_status    AS store_status
+        FROM tbl_store
+        WHERE store_status = 'PENDING'
+        ORDER BY reg_date DESC
+    </select>
+
+    <update id="updateAccountStatus">
+        UPDATE tbl_account
+        SET account_status = #{status}
+        WHERE account_id = #{accountId}
+    </update>
+
+    <update id="updateStoreStatus">
+        UPDATE tbl_store
+        SET store_status = #{status}
+        WHERE store_id = #{storeId}
+    </update>
+
+    <update id="updateAccountRole">
+        UPDATE tbl_account
+        SET account_role = #{role}
+        WHERE account_id = #{accountId}
+    </update>
+
+    <select id="getAllUsersWithPaging" parameterType="com.boot.dto.Criteria" resultType="com.boot.dto.AccountDTO">
+        <![CDATA[
+        SELECT *
+        FROM (
+            SELECT
+                ROWNUM AS rn,
+                inner_query.*
+            FROM (
+                SELECT
+                    user_name       AS userName,
+                    account_id      AS accountId,
+                    email,
+                    phone_number    AS phoneNumber,
+                    reg_date        AS regDate,
+                    account_status  AS account_status,
+                    account_role    AS accountRole
+                FROM tbl_account
+                ORDER BY reg_date DESC
+            ) inner_query
+            -- ROWNUM <= (현재 페이지 번호 * 한 페이지당 항목 수)
+            WHERE ROWNUM <= #{pageNum} * #{amount}
+        )
+        -- rn > ((현재 페이지 번호 - 1) * 한 페이지당 항목 수)
+        WHERE rn > (#{pageNum} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="getTotalUserCount" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_account
+    </select>
+
+    <select id="getPendingStoresWithPaging" parameterType="com.boot.dto.Criteria" resultType="com.boot.dto.StoreDTO">
+        <![CDATA[
+        SELECT *
+        FROM (
+            SELECT
+                ROWNUM AS rn,
+                inner_query.*
+            FROM (
+                SELECT
+                    store_id        AS storeId,
+                    email,
+                    phone_number    AS phoneNumber,
+                    reg_date        AS regDate,
+                    store_status    AS store_status
+                FROM tbl_store
+                WHERE store_status = 'PENDING'
+                ORDER BY reg_date DESC
+            ) inner_query
+            -- ROWNUM <= (현재 페이지 번호 * 한 페이지당 항목 수)
+            WHERE ROWNUM <= #{pageNum} * #{amount}
+        )
+        -- rn > ((현재 페이지 번호 - 1) * 한 페이지당 항목 수)
+        WHERE rn > (#{pageNum} - 1) * #{amount}
+        ]]>
+    </select>
+
+    <select id="countPendingStores" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_store
+        WHERE store_status = 'PENDING'
+    </select>
+
+</mapper>

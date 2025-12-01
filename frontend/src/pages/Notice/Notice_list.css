@@ -1,0 +1,186 @@
+/* NoticeList.css - 진짜 진짜 최종 완전체 (2025 한국형 최고 퀄리티) */
+
+.notice-list-main {
+    max-width: 1200px;
+    min-width: 75%;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Malgun Gothic", sans-serif;
+    background: #ffffff;
+}
+
+.notice-list-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.notice-list-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+/* 로딩 & 빈 상태 */
+.notice-list-loading,
+.notice-list-empty {
+    text-align: center;
+    padding: 120px 20px;
+    font-size: 1.2rem;
+    color: #666;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.notice-list-loading::before { content: "불러오는 중..."; display: block; font-size: 4rem; margin-bottom: 20px; opacity: 0.3; }
+.notice-list-empty::before   { content: "아직 공지사항이 없어요"; display: block; font-size: 4rem; margin-bottom: 20px; opacity: 0.3; }
+
+/* 테이블 박스 */
+.notice-list-table-wrapper {
+    overflow-x: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+    background: white;
+    margin-bottom: 70px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.notice-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.notice-list-table th {
+    background: #f8f9fa;
+    padding: 20px 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 1.03rem;
+    border-bottom: 3px solid #e1e4e8;
+    letter-spacing: -0.4px;
+}
+
+.notice-list-table td {
+    padding: 20px 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    vertical-align: middle;
+    height: 72px;
+    color: #333;
+    font-size: 0.98rem;
+}
+
+.notice-list-td-title {
+    text-align: left !important;
+    padding-left: 24px !important;
+    max-width: 560px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.notice-list-row:hover {
+    background: #edf6ff !important;
+}
+
+.notice-list-row:hover .notice-list-td-title {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.notice-list-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.notice-list-link:hover {
+    color: #0066cc;
+}
+
+/* 페이징 */
+.notice-list-pagination {
+    margin: 70px 0;
+    text-align: center;
+}
+
+.notice-list-pagination-list {
+    display: inline-flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.notice-list-page-item button {
+    min-width: 48px;
+    height: 48px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.notice-list-page-item button:hover {
+    background: #0066cc;
+    color: white;
+    border-color: #0066cc;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,102,204,0.3);
+}
+
+.notice-list-active button {
+    background: #0066cc !important;
+    color: white !important;
+    border-color: #0066cc !important;
+    font-weight: 800;
+    box-shadow: 0 6px 16px rgba(0,102,204,0.35);
+}
+
+/* 관리자 글쓰기 버튼 */
+.notice-list-admin-write-container {
+    text-align: right;
+    margin: -50px 0 60px;
+}
+
+.notice-list-admin-write-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #0066cc;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,102,204,0.35);
+    transition: all 0.35s ease;
+}
+
+.notice-list-admin-write-btn:hover {
+    background: #0052a3;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,102,204,0.45);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .notice-list-main { padding: 40px 15px; }
+    .notice-list-title { font-size: 2.2rem; }
+    .notice-list-table th,
+    .notice-list-table td { padding: 14px 8px; font-size: 0.94rem; height: 60px; }
+    .notice-list-table th:first-child,
+    .notice-list-table td:first-child { display: none; }
+    .notice-list-td-title { max-width: 240px; padding-left: 12px !important; }
+}
+
+@media (max-width: 480px) {
+    .notice-list-title { font-size: 1.9rem; }
+    .notice-list-admin-write-btn { padding: 14px 28px; font-size: 1rem; }
+}

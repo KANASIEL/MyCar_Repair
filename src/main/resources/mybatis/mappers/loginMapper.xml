@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.LoginDAO">
+
+	<select id="loginYn" parameterType="hashmap" resultType="com.boot.dto.LoginDTO">
+    SELECT 
+        account_id AS accountId,
+        user_name AS userName,
+        password,
+        email,
+        phone_number AS phoneNumber,
+        account_role AS accountRole,
+        account_status AS accountStatus,
+        reg_date AS regDate
+	    FROM tbl_account
+	    WHERE account_id = #{accountId}
+	</select>
+
+	
+	<select id="findByAccountId" resultType="com.boot.dto.LoginDTO">
+    	SELECT account_id, password, account_role AS accountRole, account_status AS accountStatus
+    	FROM tbl_account
+    	WHERE account_id = #{accountId}
+	</select>
+
+</mapper>

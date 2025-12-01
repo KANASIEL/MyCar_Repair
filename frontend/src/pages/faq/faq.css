@@ -1,0 +1,219 @@
+/* ============================
+ * 1. 전체 컨테이너 및 테이블
+ * ============================ */
+.faq-container {
+    /* 💡 가로 폭 수정: 최대 폭을 지정하여 넓게 퍼지는 것을 방지 */
+    max-width: 900px; /* 고정된 최대 폭 설정 */
+    width: 90%;      /* 작은 화면에서 폭 조절을 위해 width는 90% 유지 */
+    margin: 50px auto; /* 화면 중앙 정렬 */
+    text-align: center;
+    min-height: 500px; 
+}
+
+/* 제목(h2) 스타일 */
+.faq-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 테이블 디자인 */
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    border-top: 2px solid #333;
+}
+
+/* 목록/상세보기 공통 스타일 */
+.faq-table th, .faq-table td {
+    padding: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left; /* ⬅️ 수정: 좌측 정렬 */
+}
+
+/* 테이블 헤더 */
+.faq-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 목록 전용: 마우스 올렸을 때 행 강조 */
+.faq-list-row:hover {
+    background-color: #f9fbfc;
+}
+
+/* 제목 링크 스타일 (목록에만 적용) */
+.faq-table td a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: color 0.2s;
+}
+.faq-table td a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* ============================
+ * 2. FAQ 상세 보기 전용 스타일 
+ * ============================ */
+
+/* 💡 내용 셀 스타일: 상세 내용의 레이아웃을 잡아줍니다. */
+.faq-content-cell {
+    /* 텍스트가 셀 상단에 붙도록 정렬 */
+    vertical-align: top;
+    /* 텍스트는 좌측 정렬 */
+    text-align: left;
+    /* 긴 내용 자동 줄바꿈 및 작성된 줄바꿈 유지 */
+    white-space: pre-wrap; 
+    /* 내용이 비어있어도 최소 높이를 가지도록 강제 */
+    min-height: 200px; 
+    height: 200px; /* 명확하게 높이 지정 */
+}
+
+/* ============================
+ * 3. 페이징 및 버튼 (수정/삭제 버튼 포함)
+ * ============================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 버튼 사이 간격 확장 */
+    margin: 40px 0;
+    width: 100%;
+}
+
+/* 버튼 기본 모양 */
+.pagination button {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 버튼 호버 효과 */
+.pagination button:hover {
+    background-color: #f1f1f1;
+    border-color: #bbb;
+    color: #333;
+}
+
+/* 현재 페이지 (Active) */
+.pagination button.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+/* 이전/다음 버튼 비활성화 시 */
+.pagination button:disabled {
+    background-color: #fafafa;
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+
+/* 💡 수정/삭제 버튼 색상 */
+.pagination button.btn-modify {
+    background-color: #28a745; /* 녹색 */
+    color: white;
+    border: none;
+    padding: 0 20px; /* 버튼 폭 확대 */
+}
+.pagination button.btn-delete {
+    background-color: #dc3545; /* 빨간색 */
+    color: white;
+    border: none;
+    padding: 0 20px;
+}
+.pagination button.btn-modify:hover {
+    background-color: #218838;
+}
+.pagination button.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* --- 글쓰기 버튼 스타일 --- */
+.write-button {
+    /* 배경색 지정 (예: 푸른색 계열) */
+    background-color: #333; 
+    /* 글자색을 흰색으로 지정 */
+    color: white; 
+    /* 패딩(여백) 지정 */
+    padding: 8px 15px; 
+    /* 모서리를 둥글게 */
+    border: none;
+    border-radius: 5px; 
+    /* 마우스 오버 시 커서 모양 변경 */
+    cursor: pointer;
+    /* 글꼴 크기 */
+    font-size: 14px;
+    /* 부드러운 전환 효과 */
+    transition: background-color 0.3s;
+}
+
+/* 마우스 올렸을 때 (Hover) 효과 */
+.write-button:hover {
+    background-color: #ddd;
+}
+
+/* --- FAQ 검색 영역 스타일 --- */
+.faq-search-area {
+    display: flex;
+    justify-content: flex-end; /* 검색창을 우측으로 정렬 */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 검색 드롭다운과 입력 필드 공통 스타일 */
+.faq-search-area select,
+.faq-search-area input[type="text"] {
+    padding: 8px 10px; /* 내부 여백 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+}
+
+.faq-search-area input[type="text"] {
+    width: 200px; /* 적당한 너비 지정 */
+}
+
+/* 검색 버튼 스타일 (기존 pagination 버튼 스타일 재활용) */
+.faq-search-area button {
+    /* 기존 .pagination button 스타일을 재활용 */
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #333; /* 버튼 경계색을 강조하여 구분 */
+    background-color: #333; /* 검은색 배경 */
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.faq-search-area button:hover {
+    background-color: #555; /* 호버 시 색상 변경 */
+    border-color: #555;
+    color: white;
+}

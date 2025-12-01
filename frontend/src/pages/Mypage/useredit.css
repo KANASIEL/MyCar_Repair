@@ -1,0 +1,105 @@
+/* =========================================
+   회원정보 수정 - 초컴팩트 완전최적화 버전
+========================================= */
+
+/* 전체 컨테이너 */
+.edit-container {
+  width: 600px; /* 조금 더 컴팩트 */
+  margin: 50px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 24px 28px; /* 전체 패딩 감소 */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* 메인 제목 */
+.edit-container h2 {
+  text-align: center;
+  margin-bottom: 18px; /* 더 축소 */
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 폼 그룹 */
+.form-group {
+  margin-bottom: 8px; /* 12 → 8 : 확 줄임 */
+}
+
+/* 라벨 */
+.form-group label {
+  display: block;
+  margin-bottom: 3px; /* 4 → 3 */
+  font-weight: 600;
+  color: #444;
+  font-size: 13.5px;
+}
+
+/* 입력창 */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 8px 10px; /* 9 → 8 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fafafa;
+  height: 38px; /* 고정 높이로 안정감 */
+}
+
+/* 비밀번호 변경 영역 제목 */
+.edit-container h3 {
+  margin-top: 18px;  /* 20 → 18 */
+  margin-bottom: 8px; /* 10 → 8 */
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* 구분선 */
+.divider {
+  margin: 16px 0; /* 18 → 16 */
+  border: none;
+  border-top: 1px solid #e6e6e6;
+}
+
+/* 버튼 영역 */
+.edit-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* 좀 더 좁게 */
+  margin-top: 18px; /* 22 → 18 */
+}
+
+/* 버튼 스타일 */
+.btn-normal {
+  padding: 10px 22px; /* 11x26 → 10x22 */
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 취소 버튼 */
+.btn-cancel {
+  background-color: #f1f3f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+.btn-cancel:hover {
+  background-color: #e1e5e7;
+}
+
+/* 저장 버튼 */
+.btn-save {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+.btn-save:hover {
+  background-color: #005fcc;
+}

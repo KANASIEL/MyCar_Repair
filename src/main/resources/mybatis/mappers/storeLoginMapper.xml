@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.StoreLoginDAO">
+
+    <select id="storeLoginYn" parameterType="map" resultType="com.boot.dto.StoreLoginDTO">
+	    SELECT 
+	        store_id AS storeId,
+	        password,
+	        email,
+	        phone_number AS phoneNumber,
+	        reg_date AS regDate,
+	        address,
+	        latitude,
+	        longitude,
+	        description,
+	        opening_hours AS openingHours,
+	        store_status AS storeStatus
+	    FROM tbl_store
+	    WHERE store_id = #{storeId}
+	</select>
+
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.Mypage_StoreDAO">
+
+    <!-- 업체 정보 조회 -->
+    <select id="getStoreInfo" parameterType="string" resultType="com.boot.dto.StoreDTO">
+        SELECT 
+            store_id AS storeId,
+            email,
+            phone_number AS phoneNumber,
+            address,
+            latitude,
+            longitude,
+            description,
+            opening_hours AS openingHours,
+            reg_date AS regDate
+        FROM tbl_store
+        WHERE store_id = #{storeId}
+    </select>
+
+    <!-- 업체 정보 수정 -->
+    <update id="updateStoreInfo" parameterType="com.boot.dto.StoreDTO">
+        UPDATE tbl_store
+        SET email = #{email},
+            phone_number = #{phoneNumber},
+            address = #{address},
+            latitude = #{latitude},
+            longitude = #{longitude},
+            description = #{description},
+            opening_hours = #{openingHours}
+        WHERE store_id = #{storeId}
+    </update>
+
+    <!-- 비밀번호 조회 -->
+    <select id="getPasswordById" parameterType="string" resultType="string">
+        SELECT password FROM tbl_store WHERE store_id = #{storeId}
+    </select>
+
+    <!-- 비밀번호 수정 -->
+    <update id="updatePassword">
+        UPDATE tbl_store 
+        SET password = #{newPw}
+        WHERE store_id = #{storeId}
+    </update>
+
+</mapper>

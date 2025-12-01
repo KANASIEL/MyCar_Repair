@@ -1,0 +1,400 @@
+/* src/components/Maintenance/Maintenance.css - 완전 최종판 (즐겨찾기 별 완벽 구현) */
+
+.maintenance-app {
+    min-height: 100vh;
+    background: #f8fafc;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.maintenance-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.maintenance-car-selector {
+    margin-bottom: 20px;
+}
+
+.maintenance-car-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.maintenance-car-selector select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 16px;
+}
+
+.maintenance-header {
+    margin: 30px 0 20px;
+    text-align: center;
+}
+
+.maintenance-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.maintenance-carinfo {
+    font-size: 18px;
+    color: #475569;
+}
+
+.maintenance-carinfo strong {
+    font-size: 22px;
+    color: #2563eb;
+}
+
+.maintenance-tabs {
+    display: flex;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 24px;
+    gap: 4px;
+}
+
+.maintenance-tab {
+    padding: 12px 24px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s;
+}
+
+.maintenance-tab.active {
+    background: #3b82f6;
+    color: white;
+}
+
+.maintenance-tab:hover:not(.active) {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.maintenance-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 24px;
+    min-height: 500px;
+}
+
+.maintenance-btn {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 20px;
+}
+
+.maintenance-btn:hover {
+    background: #2563eb;
+}
+
+.maintenance-btn-danger {
+    padding: 6px 12px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.maintenance-btn-danger:hover {
+    background: #dc2626;
+}
+
+.maintenance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.maintenance-table th,
+.maintenance-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.maintenance-table th {
+    background: #f1f5f9;
+    font-weight: 600;
+    color: #334155;
+}
+
+.maintenance-table tr:hover {
+    background: #f8fafc;
+}
+
+.maintenance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* ============ 소모품 카드 & 즐겨찾기 별 (핵심) ============ */
+.maintenance-card {
+    position: relative;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    padding-top: 56px !important;   /* 별이 잘 보이게 위쪽 여유 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.maintenance-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    border-color: #3b82f6;
+}
+
+.maintenance-card.warning {
+    border-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.maintenance-card.danger {
+    border-color: #ef4444;
+    background: #fee2e2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.maintenance-card h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.maintenance-card p {
+    margin: 8px 0;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.maintenance-card .over {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.maintenance-card .no-record {
+    color: #94a3b8;
+    font-style: italic;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* 즐겨찾기 별 버튼 */
+.favorite-star {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #cbd5e1;                         /* 기본: 연한 회색 */
+}
+
+/* 호버하면 무조건 노란색 + 커짐 + 회전 */
+.favorite-star:hover {
+    transform: scale(1.5) rotate(18deg);
+    color: #ffd700 !important;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+}
+
+/* 즐겨찾기 ON 상태일 때 → 항상 노란색 + 빛나는 효과 */
+.favorite-star[data-favorite="true"] {
+    color: #ffd700 !important;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+    animation: starPulse 4s infinite alternate;
+}
+
+.favorite-star:active {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 18px rgba(255, 215, 0, 1));
+}
+
+@keyframes starPulse {
+    0%   { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5)); }
+    100% { filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.8)); }
+}
+
+/* 모달들 (기존 그대로) */
+.maintenance-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.maintenance-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.maintenance-modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: modalShow 0.3s ease-out;
+}
+
+@keyframes modalShow {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.maintenance-modal-header {
+    padding: 20px 24px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 16px 16px 0 0;
+}
+
+.maintenance-form-group {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.maintenance-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.maintenance-form-group input,
+.maintenance-form-group textarea,
+.maintenance-form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.maintenance-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.maintenance-modal-footer {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: #f8fafc;
+    border-radius: 0 0 16px 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 18px;
+    color: #64748b;
+}
+
+/* 등록된 차량 없을 때 예쁜 화면 */
+.maintenance-no-cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #475569;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.maintenance-no-cars .icon {
+    font-size: 80px;
+    margin-bottom: 24px;
+    opacity: 0.5;
+}
+
+.maintenance-no-cars h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1e293b;
+}
+
+.maintenance-no-cars p {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 32px;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.maintenance-no-cars .btn-add-car {
+    padding: 14px 32px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.2s;
+}
+
+.maintenance-no-cars .btn-add-car:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .maintenance-grid {
+        grid-template-columns: 1fr;
+    }
+    .maintenance-tab {
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+}

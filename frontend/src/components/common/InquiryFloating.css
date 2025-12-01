@@ -1,0 +1,56 @@
+/* ==================== 5. 플로팅 메뉴 스타일 (InquiryFloating) ==================== */
+.floating-wrapper {
+    position: fixed;
+
+    /* 왼쪽 중앙 정렬을 강제 적용 */
+    top: 50%;
+    left: 20px; /* 왼쪽에서 40px 떨어진 위치 */
+    right: auto; /* 오른쪽에 고정되는 것을 명시적으로 방지 */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+
+    z-index: 1000;
+}
+
+.floating-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-menu a {
+    display: block;
+    background: #007acc; /* 메인 색상 통일 */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.floating-menu a:hover {
+    background: #005b9f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 122, 204, 0.5);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .floating-wrapper {
+        /* 모바일: 하단 오른쪽 고정으로 복귀 */
+        top: auto;
+        left: auto;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+    }
+
+    .floating-menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+/* ===== 전체 레이아웃 ===== */
+.mypage-body {
+  width: 1180px;
+  margin: 60px auto;
+  padding-bottom: 80px;
+}
+
+.mypage-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.mypage-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.mypage-title p {
+  color: #777;
+  font-size: 15px;
+}
+
+/* ===== 섹션 기본 ===== */
+.mypage-section {
+  margin-bottom: 60px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 25px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.mypage-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  border-left: 5px solid #007bff;
+  padding-left: 10px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* ===== 내 정보 테이블 ===== */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.info-table th, .info-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 15px;
+}
+
+.info-table th {
+  background-color: #f8f9fa;
+  text-align: left;
+  width: 25%;
+  color: #555;
+}
+
+.info-table td {
+  color: #333;
+}
+
+/* ===== 차량 등록 폼 ===== */
+.car-form {
+  margin-top: 10px;
+}
+
+.car-form input[type="text"],
+.car-form select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.car-form input:focus,
+.car-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ===== 버튼 ===== */
+.btn-normal {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.btn-normal:hover {
+  background-color: #0056b3;
+}
+
+.btn-sub {
+  display: inline-block;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #333;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.btn-sub:hover {
+  background-color: #e9ecef;
+}
+
+/* ===== 데이터 테이블 ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.data-table thead {
+  background-color: #f1f3f5;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.data-table th {
+  font-weight: bold;
+  color: #444;
+}
+
+/* ===== 문의 상태 강조 ===== */
+.status {
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 3px 8px;
+  display: inline-block;
+}
+
+.status.waiting {
+  color: #555;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+}
+
+.status.processing {
+  color: #ff9800;
+  background-color: #fff3e0;
+  border: 1px solid #ffd699;
+}
+
+.status.completed {
+  color: #007bff;
+  background-color: #e7f1ff;
+  border: 1px solid #b3d4ff;
+}
+
+/* ===== 데이터 없음 문구 ===== */
+.mypage-section p {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* ===== 페이징 ===== */
+.pagination-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 6px;
+}
+
+.pagination-item a {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pagination-item a:hover {
+    background-color: #ddd;
+}
+
+/* --- 현재 페이지 버튼 강조 스타일 --- */
+.pagination-item.active a {
+    background-color: #007acc;
+    color: #fff;
+    border-color: #007acc;
+    font-weight: bold;
+}
+
+.pagination-item.active a:hover {
+    background-color: #007acc;
+    color: #fff;
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .mypage-body {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .info-table th,
+  .info-table td,
+  .data-table th,
+  .data-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn-normal {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

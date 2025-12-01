@@ -1,0 +1,52 @@
+.store-rsv-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+.table-wrapper {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.store-rsv-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+.store-rsv-table th, .store-rsv-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+.store-rsv-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+.cust-name { font-weight: bold; }
+.cust-phone { font-size: 0.85rem; color: #888; }
+.car-model { font-weight: bold; }
+.svc-type { font-size: 0.9rem; color: #007bff; }
+.memo-box { max-width: 250px; font-size: 0.9rem; color: #555; }
+.center-msg { text-align: center; color: #999; padding: 30px; }
+.badge { padding: 5px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
+.badge.pending { background: #fff3cd; color: #856404; }
+.badge.confirm { background: #d4edda; color: #155724; }
+.badge.cancel { background: #f8d7da; color: #721c24; }
+.badge.complete { background: #d1ecf1; color: #0c5460; }
+.btns { display: flex; gap: 6px; }
+.btns button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: white;
+}
+.btn-ok { background: #28a745; }
+.btn-ok:hover { background: #218838; }
+.btn-no { background: #dc3545; }
+.btn-no:hover { background: #c82333; }
+.done-txt { color: #bbb; font-size: 0.9rem; }

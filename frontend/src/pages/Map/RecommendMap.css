@@ -1,0 +1,181 @@
+/* RecommendMap.css - 완벽 수정판 (스크롤+지도 문제 100% 해결) */
+
+/* 전체 페이지 배경 및 레이아웃 */
+.map-page-container {
+  @apply min-h-screen bg-gray-100 p-4 md:p-8;
+}
+
+.content-wrapper {
+  @apply max-w-[1400px] mx-auto space-y-6;
+}
+
+/* 1. 히어로 배너 */
+.hero-banner {
+  @apply relative w-full h-64 rounded-3xl overflow-hidden shadow-xl flex flex-col items-center justify-center text-center px-4;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500;
+}
+
+.hero-text-container {
+  @apply relative z-10 text-white;
+}
+
+.hero-title {
+  @apply text-3xl md:text-4xl font-extrabold mb-3 drop-shadow-lg;
+}
+
+.hero-subtitle {
+  @apply text-gray-100 text-lg font-medium drop-shadow-md max-w-2xl mx-auto;
+}
+
+/* 2. 필터 영역 */
+.filter-section {
+  @apply bg-white p-4 rounded-2xl shadow-md flex flex-col md:flex-row items-center justify-between gap-4;
+}
+
+.filter-label {
+  @apply flex items-center gap-2 text-gray-700 font-bold text-lg ml-2;
+}
+
+.filter-controls {
+  @apply flex w-full md:w-auto gap-2;
+}
+
+.region-select {
+  @apply flex-1 md:w-48 h-12 border border-gray-200 rounded-xl px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-gray-50/50 hover:bg-gray-100 transition cursor-pointer appearance-none;
+}
+
+.search-btn {
+  @apply h-12 bg-teal-500 hover:bg-teal-600 text-white px-8 rounded-xl font-bold flex items-center gap-2 transition shadow-md hover:shadow-lg active:scale-95;
+}
+
+/* 3. 메인 카드 (지도 + 리스트) - 핵심 수정 */
+.main-card {
+  @apply bg-white rounded-3xl shadow-xl flex flex-col lg:flex-row h-[600px] lg:h-[700px] border border-gray-100;
+  /* overflow-hidden 삭제 → 지도가 자유롭게 드래그/줌 되게 함 */
+}
+
+/* 좌측 리스트 패널 - 스크롤만 여기서! */
+.list-panel {
+  @apply hidden lg:flex flex-col w-96 border-r border-gray-100 bg-white;
+  height: 100%;           /* 필수 */
+  min-height: 0;          /* 스크롤 제대로 먹히게 */
+  overflow-y: auto;       /* 왼쪽만 스크롤 */
+  flex-shrink: 0;
+}
+
+/* 우측 지도 영역 - 스크롤 절대 금지 */
+.map-section {
+  @apply flex-1 relative bg-gray-100;
+  height: 100%;           /* 필수! 지도가 꽉 차게 */
+}
+
+/* 지도 컨테이너 100% 채우기 */
+.map-section > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.list-header {
+  @apply p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/80 backdrop-blur-sm;
+}
+
+.list-count-badge {
+  @apply bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-bold;
+}
+
+.list-item {
+  @apply p-5 border-b border-gray-50 hover:bg-teal-50/50 cursor-pointer transition-all duration-200;
+}
+
+.store-name {
+  @apply font-bold text-gray-800 flex items-center gap-2 text-lg group-hover:text-teal-600 transition-colors;
+}
+
+.mobile-list-btn-wrapper {
+  @apply lg:hidden absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 w-full px-6;
+}
+
+.mobile-list-btn {
+  @apply w-full bg-white/90 backdrop-blur-md text-gray-800 px-6 py-4 rounded-2xl shadow-xl font-bold flex justify-between items-center border border-gray-200/50 hover:bg-white transition-all active:scale-95;
+}
+
+/* --- 상세 정보 패널 (데스크톱) --- */
+.detail-panel {
+  @apply hidden lg:block absolute top-0 right-0 h-full w-[360px] bg-white border-l border-gray-200 shadow-2xl z-30;
+}
+
+.panel-header {
+  @apply flex items-center justify-between px-5 py-4 border-b border-gray-100;
+}
+
+.panel-title {
+  @apply text-lg font-extrabold text-gray-800;
+}
+
+.panel-close {
+  @apply text-2xl leading-none text-gray-400 hover:text-gray-600 transition;
+}
+
+.panel-body {
+  @apply p-5 space-y-3;
+}
+
+.panel-address {
+  @apply text-sm text-gray-600;
+}
+
+.panel-phone {
+  @apply text-sm font-semibold text-teal-700;
+}
+
+.panel-actions {
+  @apply flex gap-2 pt-2;
+}
+
+.action-btn {
+  @apply px-3 py-2 rounded-lg text-sm font-bold border border-gray-200 shadow-sm hover:shadow transition;
+}
+
+.action-btn.call {
+  @apply bg-teal-50 text-teal-700 hover:bg-teal-100;
+}
+
+.action-btn.route {
+  @apply bg-gray-50 text-gray-700 hover:bg-gray-100;
+}
+
+.action-btn.copy {
+  @apply bg-gray-50 text-gray-700 hover:bg-gray-100;
+}
+
+/* --- 상세 정보 바텀시트 (모바일) --- */
+.detail-sheet {
+  @apply lg:hidden fixed left-0 right-0 bottom-0 bg-white rounded-t-2xl border-t border-gray-200 shadow-2xl z-40 max-h-[50vh] overflow-y-auto;
+}
+
+.sheet-handle {
+  @apply w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-3;
+}
+
+.sheet-header {
+  @apply flex items-center justify-between px-5 py-3;
+}
+
+.sheet-title {
+  @apply text-base font-extrabold text-gray-800;
+}
+
+.sheet-close {
+  @apply text-sm font-bold text-gray-600 hover:text-gray-800;
+}
+
+.sheet-body {
+  @apply px-5 pb-5 space-y-3;
+}
+
+.sheet-address { @apply text-sm text-gray-600; }
+.sheet-phone { @apply text-sm font-semibold text-teal-700; }
+.sheet-actions { @apply flex gap-2 pt-2; }

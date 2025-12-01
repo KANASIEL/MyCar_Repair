@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper resource="mybatis/mappers/accountMapper.xml"/>
+		<mapper resource="mybatis/mappers/adminMapper.xml"/>
+		<mapper resource="mybatis/mappers/storeMapper.xml"/>
+		<mapper resource="mybatis/mappers/page.xml"/>
+    	<mapper resource="mybatis/mappers/faq.xml"/>
+   		<mapper resource="mybatis/mappers/notice.xml"/>
+    	<mapper resource="mybatis/mappers/loginMapper.xml"/>
+		<mapper resource="mybatis/mappers/storeLoginMapper.xml"/>
+        <mapper resource="mybatis/mappers/inquiry.xml"/>
+		<mapper resource="mybatis/mappers/mypageMapper.xml"/>
+        <mapper resource="mybatis/mappers/mypage_AdminMapper.xml"/>
+        <mapper resource="mybatis/mappers/mypage_StoreMapper.xml"/>
+        <mapper resource="mybatis/mappers/mypage_UserMapper.xml"/>
+        <mapper resource="mybatis/mappers/findAccount.xml"/>
+        <mapper resource="mybatis/mappers/AutoKeywordMapper.xml"/>
+        <mapper resource="mybatis/mappers/reviewMApper.xml"/>
+        <mapper resource="mybatis/mappers/reservationMapper.xml"/>
+        <mapper resource="mybatis/mappers/maintenance.xml"/>
+        <mapper resource="mybatis/mappers/storereservationMapper.xml"/>
+        <mapper resource="mybatis/mappers/maintenanceFavorite.xml"/>
+	</mappers>
+</configuration>

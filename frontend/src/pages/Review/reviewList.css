@@ -1,0 +1,271 @@
+.review-table-container {
+  margin-top: 20px;
+}
+
+.avg-rating-box {
+  margin-bottom: 20px;
+  position: relative;
+  right: 315px;
+  width: fit-content;  /* 가운데 기준점 잡기 */
+  margin-left: auto;
+  margin-right: auto;
+}
+.avg-star-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.avg-rating-number {
+  font-size: 16px;
+  color: #555;
+}
+
+.review-table {
+  border-collapse: collapse;
+  position: relative;
+  margin: 0 auto;
+}
+
+.review-table th,
+.review-table td {
+  padding: 6px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.rating-number {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.sr-star {
+  width: 20px;
+  height: 20px;
+}
+
+.review-table td:nth-child(1),
+.review-table th:nth-child(1) {
+  width: 200px;
+}
+
+.review-table td:nth-child(2),
+.review-table th:nth-child(2) {
+  width: 100px;
+}
+
+.review-table td:nth-child(3),
+.review-table th:nth-child(3) {
+  width: 300px;
+  padding-right: 60px;
+}
+
+.review-table td:nth-child(4),
+.review-table th:nth-child(4) {
+  width: 200px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* 별 사이 간격도 제거 가능 (원하면 2~3px로 바꿔도 됨) */
+}
+
+.rating-number {
+  margin-left: 3px; /* 별과 숫자 간 최소 간격 */
+  font-size: 14px;
+  color: #555;
+}
+
+.star-with-score {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* 별과 점수 간 거리 */
+}
+
+.review-content-cell {
+  position: relative;
+}
+
+.review-content-text {
+  display: block;
+  max-width: calc(100% - 32px); /* 버튼 영역 제외 (수정 + 삭제) */
+  white-space: normal;
+  word-break: break-word;
+}
+
+.edit-btn {
+  font-size: 12px;
+  width: 30px;
+  height: 23px;
+  position: absolute;
+  right: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: #3b82f6; /* 산뜻한 파란색 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  line-height: 1;
+}
+
+.edit-btn:hover {
+  background: #2563eb; /* hover 시 진한 파랑 */
+}
+
+.delete-btn {
+  font-size: 12px;
+  width: 30px;
+  height: 23px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: #ef4444; /* 선명한 빨강 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  background: #dc2626; /* hover 시 더 진한 빨강 */
+}
+
+.pagination {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+/* 수정 행 전체 */
+.edit-row td {
+  background: #f9f9f9;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+/* 수정 박스 카드 스타일 */
+.edit-box {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 제목 */
+.edit-box h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 입력 라벨 */
+.edit-box label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 숫자 입력 */
+.edit-box input[type="number"] {
+  width: 100px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* 내용 textarea */
+.edit-box textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* 버튼 영역 */
+.save-btn,
+.cancel-btn {
+  width: 70px;
+  padding: 6px 0;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+/* 저장 버튼 (파란색) */
+.save-btn {
+  background: #4A90E2;
+}
+
+/* 취소 버튼 (회색) */
+.cancel-btn {
+  background: #777;
+}
+
+/* 버튼을 가로로 정렬 */
+.edit-box button {
+  align-self: flex-start;
+}
+
+/* 기본 버튼 */
+.pagination button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* 버튼 hover */
+.pagination button:hover {
+  background-color: #e6e6e6;
+}
+
+/* 현재 선택된 페이지 */
+.pagination button.active-page {
+  background-color: #4a90e2;
+  color: white;
+  border-color: #357ab8;
+  font-weight: bold;
+}
+
+/* 이전/다음 그룹 버튼 (<, >) */
+.pagination button.group-nav {
+  background-color: #fafafa;
+  font-weight: bold;
+}
+
+.pagination button.group-nav:hover {
+  background-color: #ececec;
+}
+

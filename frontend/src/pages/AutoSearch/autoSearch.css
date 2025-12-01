@@ -1,0 +1,93 @@
+/* 검색창 전체 래퍼 */
+.auto-container {
+  position: relative;
+  width: 240px;
+  left: 350px;
+  top: 47px;
+}
+
+/* 입력창 */
+.auto-input-wrap {
+  position: relative;
+}
+
+.auto-input {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.auto-input:focus {
+  border-color: #007bff;
+}
+
+/* 로딩 텍스트 */
+.auto-loading {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #666;
+}
+
+/* 드롭다운 박스 */
+.auto-dropdown {
+  display: none;
+  position: absolute;
+  top: 38px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  z-index: 50;
+}
+
+.auto-dropdown.open {
+  display: block;
+}
+
+/* 리스트 */
+.auto-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.auto-item {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auto-item:last-child {
+  border-bottom: none;
+}
+
+/* Hover & Keyboard Focus */
+.auto-item:hover,
+.auto-item.focused {
+  background: #f5f9ff;
+}
+
+/* 키워드 */
+.auto-keyword {
+  font-weight: 500;
+  color: #0D6EFD;
+}
+
+.auto-keyword:hover {
+	text-decoration: underline;
+}
+
+/* 링크 */
+.auto-link {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}

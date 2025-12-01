@@ -1,0 +1,217 @@
+/* 체크박스 영역 */
+.login-check-wrapper:hover {
+  cursor: pointer;
+}
+
+#login-save-id {
+  display: none;
+}
+
+.login-check-custom {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  margin-right: 8px;
+  position: relative;
+  box-sizing: border-box;
+  right: 142px;
+}
+
+.login-check-custom::after {
+  content: '✓';
+  color: #777;
+  position: absolute;
+  left: 4px;
+  bottom: 1px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.login-check-custom,
+.login-check-text {
+  display: inline-block;
+  vertical-align: middle;
+  top: 13px;
+}
+
+.login-check-text {
+  color: #858585;
+  top: 13px;
+  position: relative;
+  right: 148px;
+  font-size: 14px;
+}
+
+.login-check-wrapper input:checked + .login-check-custom {
+  background-color: #999;
+  border-color: #999;
+}
+
+.login-check-wrapper input:checked + .login-check-custom::after {
+  color: #fff;
+}
+
+/* 테이블 */
+.login-table {
+  width: 450px;
+  height: 500px;
+  margin: 200px auto 200px auto;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.09);
+}
+
+.login-table tr:first-child {
+  height: 60px;
+}
+
+.login-table tr:first-child td {
+  padding-top: 2px;
+}
+
+.login-table tr td {
+  border: none;
+  padding: 10px;
+}
+
+/* 입력창 */
+.login-input {
+  position: relative;
+  top: 30px;
+  width: 90%;
+  height: 60px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  font-size: large;
+  padding-left: 12px;
+  margin-bottom: -15px;
+  margin-top: -15px;
+}
+
+/* 로그인 버튼 */
+.login-btn-row {
+  padding-left: 28px;
+}
+
+.login-btn {
+  border-radius: 5px;
+  width: 90%;
+  height: 60px;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  font-size: large;
+  text-align: center;
+  margin-top: -19px;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #999;
+  cursor: pointer;
+}
+
+/* 탭 */
+.login-tab {
+  position: relative;
+  text-align: center;
+  right: 7px;
+}
+
+/* 기본 로그인 active */
+.login-tab-active {
+  position: relative;
+  font-size: 20px;
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+  padding: 20px;
+  bottom: 5px;
+  left: 33px;
+  font-weight: 600;
+}
+
+.login-tab-other {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  width: 230px !important;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 4px;
+  left: 30px;
+  bottom: 4px;
+  background-color: lightgray;
+}
+
+.login-tab-other:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.login-tab-other::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #f5f5f5;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* 에러 메시지 */
+.login-error-row {
+  height: 20px;
+  text-align: left;
+}
+
+.login-error-msg {
+  position: relative;
+  color: red;
+  text-align: left;
+  font-size: 13px;
+  left: 22px;
+  bottom: 10px !important;
+}
+
+/* 메인 영역 */
+.login-main {
+  background-color: #f9f9f9;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 제목 */
+.login-title {
+  position: relative;
+  bottom: 80px;
+  font-weight: 400;
+  font-size: 45px;
+}
+
+.login-subtext {
+  position: relative;
+  bottom: 70px;
+  font-size: 17px;
+}
+
+/* 하단 링크 */
+.login-links {
+  position: relative;
+  bottom: 8px;
+}
+
+.login-link {
+  color: #444;
+}

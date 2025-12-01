@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.boot.dao.AutoKeywordDAO">
+
+	    <select id="searchKeyword"
+	            parameterType="string"
+	            resultType="com.boot.entity.AutoKeyword">
+				SELECT *
+			    FROM KEYWORD
+			    WHERE KEYWORD LIKE '%' || #{keyword} || '%'
+			       OR ENG_ROWER LIKE '%' || #{keyword} || '%'
+			       OR ENG_UPPER LIKE '%' || #{keyword} || '%'
+			    ORDER BY KEYWORD ASC
+	    </select>
+	
+	</mapper>

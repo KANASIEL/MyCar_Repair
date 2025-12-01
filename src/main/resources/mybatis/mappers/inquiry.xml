@@ -1,0 +1,133 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.InquiryDAO">
+    <sql id="statusWhere">
+        <if test="cri.type != null and cri.type != ''">
+            AND inquiry_status = #{cri.type}
+        </if>
+    </sql>
+
+    <select id="getInquiryListWithPaging" resultType="com.boot.dto.InquiryDTO">
+        <![CDATA[
+        SELECT *
+        FROM (
+            SELECT ROWNUM AS rn, a.*
+            FROM (
+                SELECT
+                    inquiry_no,
+                    customer_name,
+                    inquiry_title,
+                    TO_CHAR(inquiry_created, 'YYYY-MM-DD HH24:MI') AS inquiry_created,
+                    inquiry_status
+                FROM tbl_inquiry
+                WHERE customer_id = #{customer_id}
+                ]]>
+                <include refid="statusWhere"/>
+                <![CDATA[
+                ORDER BY inquiry_no DESC
+            ) a
+            WHERE ROWNUM <= #{cri.pageNum} * #{cri.amount}
+        )
+        WHERE rn > (#{cri.pageNum} - 1) * #{cri.amount}
+        ]]>
+    </select>
+
+    <select id="getTotalUserInquiry" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_inquiry
+        WHERE customer_id = #{customer_id}
+        <include refid="statusWhere"/>
+    </select>
+
+    <select id="getInquiryManageWithPaging" resultType="com.boot.dto.InquiryDTO">
+        <![CDATA[
+        SELECT *
+        FROM (
+            SELECT ROWNUM AS rn, a.*
+            FROM (
+                SELECT
+                    inquiry_no,
+                    customer_name,
+                    inquiry_title,
+                    TO_CHAR(inquiry_created, 'YYYY-MM-DD HH24:MI') AS inquiry_created,
+                    inquiry_status
+                FROM tbl_inquiry
+                WHERE 1=1
+                ]]>
+                <include refid="statusWhere"/>
+                <![CDATA[
+                ORDER BY inquiry_no DESC
+            ) a
+            WHERE ROWNUM <= #{cri.pageNum} * #{cri.amount}
+        )
+        WHERE rn > (#{cri.pageNum} - 1) * #{cri.amount}
+        ]]>
+    </select>
+
+    <select id="getTotalAllInquiry" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_inquiry
+        WHERE 1=1
+        <include refid="statusWhere"/>
+    </select>
+
+    <select id="getInquiryView" resultType="com.boot.dto.InquiryDTO">
+        SELECT *
+        FROM tbl_inquiry
+        WHERE inquiry_no = #{inquiry_no}
+    </select>
+
+    <update id="inquiryReplyProcess">
+        UPDATE tbl_inquiry
+        SET
+        reply_content = #{reply_content},
+        inquiry_status = '답변완료',
+        reply_created = SYSDATE
+        WHERE inquiry_no = #{inquiry_no}
+    </update>
+
+    <select id="getUserInfo" resultType="com.boot.dto.InquiryDTO">
+        SELECT
+            user_name AS customer_name,
+            email AS customer_email,
+            phone_number AS customer_phone
+        FROM
+        tbl_account
+        WHERE
+        account_id = #{customer_id}
+    </select>
+
+    <!-- 초기 상태는 '답변대기'로 설정됩니다. -->
+    <insert id="inquiryWriteProcess" parameterType="com.boot.dto.InquiryDTO">
+        INSERT INTO tbl_inquiry (
+            inquiry_no,
+            customer_id,
+            customer_name,
+            customer_phone,
+            customer_email,
+            inquiry_title,
+            inquiry_content,
+            inquiry_status,
+            inquiry_created
+        ) VALUES (
+            SEQ_INQUIRY_NO.NEXTVAL,
+            #{customer_id},
+            #{customer_name},
+            #{customer_phone},
+            #{customer_email},
+            #{inquiry_title},
+            #{inquiry_content},
+            '답변대기',
+            SYSDATE
+        )
+    </insert>
+
+    <delete id="inquiryDeleteProcess">
+        DELETE FROM tbl_inquiry
+        WHERE inquiry_no IN
+        <foreach item="no" collection="inquiryNos" open="(" separator="," close=")">
+            #{no}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,345 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+header .inner {
+    width: 1180px;
+    height: 120px;
+    margin: 0px auto;
+    position: relative;
+}
+
+header .inner h1 {
+    left: 0px;
+    bottom: 15px;
+    position: absolute;
+    align-items: center;
+}
+
+header .inner h1 a {
+    /* 폰트굵기, 크기,줄간격, 글꼴 */
+    font: bold 24px/1 "arial";
+    color: #444;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 이미지와 텍스트 사이 간격 (원하는 대로 조절) */
+}
+header .inner h1 a img {
+    height: 110px; /* 로고 이미지의 높이 (원하는 대로 조절) */
+    width: auto; /* 비율 유지를 위해 너비는 자동으로 */
+    vertical-align: middle; /* 텍스트와의 세로 정렬 */
+}
+header .inner .util {
+    top: 20px;
+    right: 30px;
+    position: absolute;
+}
+
+header .inner .util li {
+    float: left;
+}
+
+header .inner .util li a {
+    font: 12px/1 "arial";
+    color: #999;
+    padding: 0px 10px;
+    display: block;
+}
+
+header .inner #gnb {
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
+
+header .inner #gnb li {
+    float: left;
+}
+
+header .inner #gnb li a {
+    font: bold 15px/1 "aria";
+    color: #555;
+    padding: 20px 40px;
+    display: block;
+    transition: all 0.5s;
+}
+
+header .inner #gnb li a:hover {
+    color: #fff;
+    background: #555;
+}
+/* 슬라이드 쇼 전체 영역의 크기를 잡아줍니다. */
+figure {
+    width: 100%;
+    height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
+    position: relative;
+    overflow: hidden;
+    /* bxslider가 만드는 테두리나 그림자가 보이지 않게 처리 */
+    border: none;
+    box-shadow: none;
+}
+
+/* 슬라이드 이미지들이 들어갈 공간 */
+figure .pic {
+    width: 100%;
+    height: 100%;
+}
+
+/* 슬라이드 이미지 자체의 크기를 부모에 꽉 차게 설정 */
+.slide_gallery li img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* 이미지가 잘리더라도 비율을 유지하며 꽉 채움 */
+    display: block;    /* 이미지 자체의 여백 문제 방지 */
+}
+
+/* BXSlider가 자동으로 만드는 불필요한 배경/테두리 제거 */
+.bx-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+/*faq 페이지에서 footer 아래에 공백있던 문제 해결*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    
+    flex: 1;
+
+    /* (선택 사항) 콘텐츠 영역에 여백과 너비를 줍니다. */
+    width: 100%; /* (header/footer와 동일한 너비로 가정) */
+    margin: 0 auto;  /* 가운데 정렬 */
+    padding: 50px 0; /* 위아래 여백 */
+}
+/* 이미지 위에 올라갈 텍스트 컨테이너 (스티커 역할) */
+.main-text {
+    position: absolute; /* figure(도화지) 위에 띄움 */
+    top: 50%;           /* 위에서 50% 지점 */
+    left: 50%;          /* 왼쪽에서 50% 지점 */
+    transform: translate(-50%, -50%); /* 자기 크기의 절반만큼 위와 왼쪽으로 이동해 완벽한 중앙 정렬 */
+    width: 100%;
+    text-align: center;
+    z-index: 10;        /* 👈 중요: 이미지(Swiper) 위에 나타나도록 설정 */
+}
+
+/* 메인 텍스트(h1) 스타일 */
+.main-text h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 글자가 잘 보이도록 그림자 추가 */
+}
+
+/* 서브 텍스트(p) 스타일 */
+.main-text p {
+    font-size: 18px;
+    color: white;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* 글자가 잘 보이도록 그림자 추가 */
+} 
+
+/* 플로팅 아이콘 전체 컨테이너 */
+.floating-icons {
+    position: fixed; /* 화면에 고정 */
+    top: 50%; /* 화면 세로의 중간 지점에서 시작 */
+    right: 20px; /* 오른쪽에서 20px 떨어짐 */
+    transform: translateY(-50%); /* 아이콘 그룹 전체를 세로로 절반만큼 위로 올려 정확히 중앙에 배치 */
+    z-index: 1000; /* 다른 요소들보다 항상 위에  있도록 설정 */
+}
+
+/* 각 아이콘에 대한 스타일 */
+.floating-icons a {
+    display: block; /* 아이콘을 세로로 나열 */
+    width: 50px; /* 아이콘 너비 */
+    height: 50px; /* 아이콘 높이 */
+    margin-bottom: 15px; /* 아이콘 사이 간격 */
+    border-radius: 50%; /* 원 모양으로 만듦 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 은은한 그림자 효과 */
+    transition: transform 0.3s; /* 부드러운 효과를 위한 transition */
+    background-color: #fff; /* 아이콘 배경색 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 아이콘 안의 이미지 크기 조절 */
+.floating-icons a img {
+    width: 60%;
+    height: 60%;
+}
+
+
+/* 아이콘에 마우스를 올렸을 때 효과 */
+.floating-icons a:hover {
+    transform: scale(1.15); /* 살짝 커지는 효과 */
+}
+
+/* section.features 에 적용될 스타일 */
+section.features {
+    width: 100%;
+    padding: 200px 0;
+}
+
+section.features .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+section.features .inner h1 {
+    font: bold 24px/1 "arial";
+    color: #555;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section.features .inner .wrap {
+    width: 100%;
+    display: flex; /* 자식 요소들을 가로로 배치 */
+    gap: 20px;     /* 요소들 사이의 간격을 20px로 설정 */
+}
+
+section.features .inner .wrap article {
+    flex: 1; /* 사용 가능한 공간을 4개의 article이 동일하게 나눠 가지도록 합니다 */
+    text-align: center; /* 텍스트를 보기 좋게 가운데 정렬 */
+}
+
+section.features .inner .wrap article img {
+    width: 100%;             /* 부모 요소(article) 너비에 꽉 채움 */
+    aspect-ratio: 1 / 1;     /* 이미지 비율을 1:1 (정사각형)로 고정 */
+    object-fit: cover;       /* 이미지가 잘리더라도 비율을 유지하며 꽉 채움 */
+}
+
+section.features .inner .wrap article h2 {
+    margin: 15px 0 10px; /* 이미지와 제목 사이, 제목과 내용 사이 여백 조정 */
+    font: bold 16px/1 "arial";
+    color: #555;
+}
+
+section.features .inner .wrap article p {
+    font: 14px/1.4 "arial";
+    color: #777;
+}
+.swiper {
+    width: 100%;
+    height: 100%; /* figure와 pic의 높이를 따라가도록 */
+}        
+
+.swiper-slide img {
+    /* 👈 이 코드가 있어야 이미지가 SwiperSlide의 너비를 정확히 채웁니다. */
+    width: 100%;       
+    height: 100vh;
+    object-fit: cover; 
+    display: block;
+}
+/* ----- 드롭다운 게시판 메뉴 스타일 ----- */
+
+/* 1. 하위 메뉴를 포함할 부모 li 요소 (기준점 역할) */
+#gnb > li.dropdown-parent {
+    position: relative; /* 자식인 .submenu의 위치 기준이 됨 */
+}
+
+/* 2. 하위 메뉴 ul 스타일 (평소 상태: 숨김) */
+.submenu {
+    position: absolute;   /* 부모 li를 기준으로 위치를 잡음 */
+    top: 100%;            /* 부모 li 바로 아래에 붙도록 설정 */
+    left: 0;
+    width: 100%;          /* 부모 li와 동일한 너비 */
+    background-color: #fff; /* 배경색 */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 은은한 그림자 */
+    list-style: none;     /* 목록 점 제거 */
+    padding: 0;
+    display: none;        /* 핵심: 평소에는 메뉴를 숨김 */
+    z-index: 10;          /* 다른 요소 위에 보이도록 설정 */
+}
+
+.submenu li {
+    width: 100%; 
+}
+
+/* 3. 부모 li에 마우스를 올렸을 때, 숨겨뒀던 하위 메뉴를 보여줌 */
+#gnb > li.dropdown-parent:hover .submenu {
+    display: block;       /* 핵심: 마우스를 보여줌 */
+}
+
+/* 4. 하위 메뉴 안의 각 항목(a 태그) 스타일 */
+.submenu li a {
+    padding: 12px 20px;   /* 내부 여백 */
+    font-size: 14px;      /* 글자 크기 */
+    color: #444;          /* 글자 색 */
+    display: block;       /* 링크 영역을 전체로 확장 */
+    text-align: center;
+    transition: all 0.3s; /* 부드러운 전환 효과 */
+    /* 기존 gnb li a의 굵은 글씨, 패딩 등을 초기화 */
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+/* 5. 하위 메뉴 항목에 마우스를 올렸을 때의 스타일 */
+.submenu li a:hover {
+    background-color: #f5f5f5; /* 배경색 변경 */
+    color: #000;
+}
+
+/* ----- Footer 스타일 ----- */
+footer {
+    padding: 50px 0;
+    background-color: #333; /* 어두운 배경색 */
+    color: #aaa; /* 기본 글자색 */
+    font-size: 14px;
+}
+
+footer .inner {
+    width: 1180px;
+    margin: 0 auto;
+    display: flex; /* 로고와 정보를 나란히 배치 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .footer-logo a {
+    font: bold 20px/1 "arial";
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .footer-logo img {
+    height: 40px;
+}
+
+footer .footer-info {
+    text-align: right;
+}
+
+footer .footer-info p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+footer .footer-info .copyright {
+    margin-top: 15px;
+    color: #777;
+    font-size: 13px;
+}

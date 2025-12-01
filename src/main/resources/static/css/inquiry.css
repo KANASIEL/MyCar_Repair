@@ -1,0 +1,443 @@
+@charset "utf-8";
+
+/* Global Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Floating Menu */
+.floating-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.floating-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-menu a {
+    display: block;
+    width: 120px;
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.floating-menu a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Layout & Container */
+.inquiry-view-container,
+.inquiry-history-container,
+.content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 40px 80px;
+    position: relative;
+}
+
+/* Page Header */
+.inquiry-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.inquiry-title,
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.inquiry-divider {
+    width: 60px;
+    height: 2px;
+    background-color: #333;
+    border: none;
+    margin: 0 auto;
+}
+
+/* Inquiry Content */
+.inquiry-body {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.inquiry-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-line;
+    margin-bottom: 20px;
+}
+
+.inquiry-meta {
+    text-align: right;
+    font-size: 13px;
+    color: #888;
+}
+
+/* Admin Reply */
+.inquiry-reply {
+    background-color: #f1f8ff;
+    border-left: 5px solid #007acc;
+    border-radius: 8px;
+    padding: 30px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.reply-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #005b9f;
+    margin-bottom: 16px;
+}
+
+.reply-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-line;
+}
+
+.reply-content-area {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #333;
+    resize: vertical;
+}
+
+.reply-button,
+.reply-submit {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Forms (Inquiry & Search) */
+#inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+#searchForm select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    min-width: 140px;
+}
+
+#searchForm button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#searchForm button:hover {
+    background-color: #005b9f;
+}
+
+/* Table (Inquiry List) */
+.inquiry-table-wrapper {
+    overflow-x: auto;
+}
+
+.inquiry-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #fff;
+    table-layout: fixed;
+}
+
+.inquiry-table thead {
+    background-color: #f0f0f0;
+}
+
+.inquiry-table th,
+.inquiry-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inquiry-table th {
+    color: #555;
+    font-weight: bold;
+}
+
+.inquiry-table td {
+    color: #333;
+}
+
+/* 테이블의 각 열 너비 설정 (합계: 100%) */
+/* 첫 번째 열: 번호/체크박스 (10%) */
+.inquiry-table th:first-child,
+.inquiry-table td:first-child {
+    width: 10%;
+    text-align: center;
+}
+
+/* 두 번째 열: 제목 (60%) */
+.inquiry-table th:nth-child(2),
+.inquiry-table td:nth-child(2) {
+    width: 40%;
+}
+
+/* 세 번째 열: 작성일 (20%) */
+.inquiry-table th:nth-child(3),
+.inquiry-table td:nth-child(3) {
+    width: 20%;
+}
+
+/* 네 번째 열: 처리 상태 (10%) */
+.inquiry-table th:nth-child(4),
+.inquiry-table td:nth-child(4) {
+    width: 15%;
+}
+
+/* 링크 */
+.inquiry-link {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inquiry-link:hover {
+    text-decoration: underline;
+}
+
+/* Table Status Colors */
+.status-cell.답변대기 {
+    color: #d17b00;
+    font-weight: bold;
+}
+
+.status-cell.답변완료 {
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+.no-inquiry {
+    text-align: center;
+    padding: 40px 0;
+    color: #999;
+    font-size: 15px;
+}
+
+/* Buttons & Actions (Common) */
+.btn,
+.submit-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary,
+.submit-button {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.submit-button:hover {
+    background-color: #005b9f;
+}
+
+/* 추가된 버튼 스타일 */
+.btn-danger {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c92a2a;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+}
+
+/* Inquiry Actions (Deletion Interaction) */
+.inquiry-actions {
+    display: flex;
+    justify-content: flex-end; /* 버튼 그룹을 오른쪽으로 정렬 */
+    margin-top: 20px;
+}
+
+.button-group {
+    display: flex; /* 버튼들을 나란히 배치하기 위해 플렉스 컨테이너 설정 */
+    gap: 8px; /* 버튼 사이 간격 */
+    align-items: center;
+}
+
+/* 버튼 사이즈 재정의 (Inquiry Actions 내) */
+#toggleDelete,
+#confirmDelete,
+#cancelDelete {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 80px;
+}
+
+/* 체크박스 스타일 */
+.inquiry-checkbox,
+#selectAll {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #007acc;
+}
+
+/* 체크박스가 숨겨져 있는 초기 상태 (JS가 display:block으로 전환될 예정) */
+.inquiry-checkbox[style*="display:none"],
+#selectAll[style*="display:none"] {
+    display: none !important;
+}
+
+/* Pagination */
+.pagination-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 6px;
+}
+
+.pagination-item a {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pagination-item a:hover {
+    background-color: #ddd;
+}
+
+/* 현재 페이지 버튼 강조 스타일 */
+.pagination-item.active a {
+    background-color: #007acc; /* 강조 색상 */
+    color: #fff;
+    border-color: #007acc;
+    font-weight: bold;
+}
+
+.pagination-item.active a:hover {
+    background-color: #007acc; /* hover 시에도 색상 유지 */
+    color: #fff;
+}

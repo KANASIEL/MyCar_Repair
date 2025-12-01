@@ -1,0 +1,136 @@
+/* ===== mypage_storeedit.css ===== */
+
+/* 전체 컨테이너 */
+.edit-container {
+  width: 80%;
+  max-width: 700px;
+  margin: 50px auto;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 제목 */
+.edit-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 폼 전체 */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 입력 그룹 */
+.form-group, .form-group-half {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 라벨 */
+.form-group label,
+.form-group-half label {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* 일반 인풋/텍스트에어리어 */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* 위도/경도 나란히 */
+.form-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group-half {
+  flex: 1;
+}
+
+/* 🔹 비밀번호 영역 시각적 강조 */
+.password-section {
+  background: #f9f9fc;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.password-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #007bff;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* 버튼 영역 */
+.edit-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* 공통 버튼 스타일 */
+.btn-normal {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* 저장 / 취소 */
+.btn-save {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: #aaa;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+}
+
+.btn-cancel:hover {
+  background-color: #888;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .edit-container {
+    padding: 20px;
+  }
+  .form-inline {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,112 @@
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.NoticeDAO">
+
+    <sql id="searchWhere">
+        <where>
+            <if test="type != null and type != '' and keyword != null and keyword != ''">
+                <choose>
+                    <when test="type == 'T'">
+                        AND notice_title LIKE '%' || #{keyword} || '%'
+                    </when>
+                    <when test="type == 'C'">
+                        AND notice_content LIKE '%' || #{keyword} || '%'
+                    </when>
+                    <otherwise>
+                        AND (notice_title LIKE '%' || #{keyword} || '%'
+                        OR notice_content LIKE '%' || #{keyword} || '%')
+                    </otherwise>
+                </choose>
+            </if>
+        </where>
+    </sql>
+
+    <select id="getNoticeList" resultType="com.boot.dto.NoticeDTO">
+        <![CDATA[
+        SELECT
+            notice_no,
+            notice_title,
+            notice_content,
+            notice_writer,
+            TO_CHAR(notice_created, 'YYYY"년" MM"월" DD"일" HH24"시"MI"분"') AS notice_created,
+            notice_views
+        FROM (
+            SELECT
+                notice_no,
+                notice_title,
+                notice_content,
+                notice_writer,
+                notice_created,
+                notice_views,
+                ROWNUM AS rn
+            FROM (
+                SELECT
+                    notice_no,
+                    notice_title,
+                    notice_content,
+                    notice_writer,
+                    notice_created,
+                    notice_views
+                FROM tbl_notice
+    ]]>
+        <include refid="searchWhere"/>
+        <![CDATA[
+                ORDER BY notice_no DESC
+            )
+            WHERE ROWNUM <= #{pageNum} * #{amount}
+        )
+        WHERE rn > (#{pageNum} - 1) * #{amount}
+    ]]>
+    </select>
+
+    <!-- 2. 전체 개수 -->
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*) FROM tbl_notice
+        <include refid="searchWhere"/>
+    </select>
+
+    <!-- 3. 상세 조회 -->
+    <select id="getNoticeById" parameterType="long" resultType="com.boot.dto.NoticeDTO">
+        SELECT
+        notice_no,
+        notice_title,
+        notice_writer,
+        notice_content,
+        TO_CHAR(notice_created, 'YYYY"년" MM"월" DD"일" HH24"시"MI"분"') AS notice_created,
+        notice_views
+        FROM tbl_notice
+        WHERE notice_no = #{noticeNo}
+    </select>
+
+    <insert id="insertNotice" parameterType="com.boot.dto.NoticeDTO">
+        INSERT INTO tbl_notice (
+        notice_no, notice_title, notice_content, notice_writer, notice_created
+        ) VALUES (
+        SEQ_NOTICE_NO.NEXTVAL,
+        #{notice_title, jdbcType=VARCHAR},
+        #{notice_content, jdbcType=VARCHAR},
+        'ADMIN',   <!-- writer를 고정 -->
+        SYSDATE
+        )
+    </insert>
+
+    <!-- 5. 수정 -->
+    <update id="updateNotice" parameterType="com.boot.dto.NoticeDTO">
+        UPDATE tbl_notice
+        SET notice_title = #{notice_title},
+        notice_content = #{notice_content}
+        WHERE notice_no = #{notice_no}
+    </update>
+
+    <!-- 6. 삭제 -->
+    <delete id="deleteNotice" parameterType="long">
+        DELETE FROM tbl_notice WHERE notice_no = #{noticeNo}
+    </delete>
+
+    <!-- 7. 조회수 증가 -->
+    <update id="increaseViews" parameterType="long">
+        UPDATE tbl_notice SET notice_views = notice_views + 1 WHERE notice_no = #{noticeNo}
+    </update>
+
+</mapper>

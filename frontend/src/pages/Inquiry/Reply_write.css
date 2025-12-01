@@ -1,0 +1,140 @@
+/* src/pages/inquiry/ReplyWrite.css - 답변 작성/수정 페이지 전용 스타일 (수정됨) */
+
+/* 1. 기본 레이아웃 및 컨테이너 */
+.reply-write-page {
+    min-height: 100vh;
+    background: #f8f9fa;
+    /* 상단 패딩 증가 */
+    padding: 80px 20px;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.reply-write-container {
+    /* 최대 너비 추가 */
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    /* 라운딩 및 패딩 증가 */
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    padding: 50px;
+    border: 1px solid #e0e0e0;
+}
+
+/* 2. 문의 원본 헤더 영역 */
+.reply-write-header {
+    /* 패딩 및 마진 증가 */
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007acc;
+}
+
+.reply-write-title {
+    /* 폰트 크기 증가 */
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.reply-write-divider {
+    display: none;
+}
+
+/* 3. 문의 원본 본문 영역 */
+.reply-write-body {
+    padding-bottom: 35px; /* 하단 패딩 증가 */
+    /* 점선 대신 실선 사용 */
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 35px; /* 하단 마진 증가 */
+}
+
+.reply-write-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    /* 최소 높이 증가 */
+    min-height: 180px;
+    white-space: pre-wrap;
+}
+
+.reply-write-meta {
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    /* 마진 증가 */
+    margin-top: 20px;
+}
+
+/* 4. 답변 작성 섹션 */
+.reply-write-reply-section {
+    margin-top: 20px;
+}
+
+.reply-write-reply-title {
+    /* 폰트 크기 증가 */
+    font-size: 22px;
+    font-weight: 700;
+    color: #007acc;
+    margin-bottom: 15px;
+}
+
+.reply-write-content-area {
+    width: 100%;
+    /* 패딩 조정 및 라운딩 증가 */
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    min-height: 250px; /* 답변 영역 최소 높이 지정 */
+}
+
+.reply-write-content-area:focus {
+    border-color: #007acc;
+    /* 포커스 시 박스 섀도우 추가 */
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.15);
+    outline: none;
+}
+
+/* 5. 제출 버튼 영역 */
+.reply-write-submit {
+    text-align: center;
+    /* 마진 증가 */
+    margin-top: 40px;
+}
+
+.reply-write-btn {
+    /* 패딩 및 라운딩 증가 */
+    padding: 14px 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reply-write-btn-primary {
+    background-color: #007acc;
+    color: white;
+}
+
+.reply-write-btn-primary:hover {
+    background-color: #005f99;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 122, 204, 0.3);
+}
+
+/* 6. 로딩 상태 */
+.reply-write-loading {
+    text-align: center;
+    padding: 100px;
+    font-size: 18px;
+    color: #555;
+}

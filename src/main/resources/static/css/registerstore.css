@@ -1,0 +1,42 @@
+/* ============================================= */
+/* 7. 영업 시간 그룹 스타일 (★새로 추가된 부분★) */
+/* ============================================= */
+.form-time-group {
+    display: flex; /* 요소들을 가로로 나열 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 요소들 간 간격 */
+    margin-top: 5px; /* 라벨과의 상단 여백 */
+}
+
+/* 시간 선택 드롭다운과 시간 입력 필드 */
+.form-time-group .time-select,
+.form-time-group .time-input {
+    flex: 1; /* 가로 공간을 균등하게 나눔 */
+    min-width: 0; /* flex-item 기본 너비 문제 해결 */
+}
+
+/* 영업 구분 드롭다운 너비 조정 (상대적으로 작게) */
+.form-time-group .time-select {
+    flex: 0.8; /* 다른 시간 입력보다 약간 작게 */
+}
+
+/* 시간 구분자 (물결표 ~) */
+.form-time-group .time-separator {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    margin: 0 5px; /* 좌우 여백 */
+}
+
+/* input[type="time"]에 대한 브라우저 기본 스타일 일부 재정의 */
+.form-time-group input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(0%); /* 아이콘 색상 조절 (회색) */
+    opacity: 0.7;
+    cursor: pointer;
+}
+.form-time-group input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+}
+.form-time-group input[type="time"]::-webkit-datetime-edit {
+    padding: 0;
+}

@@ -1,0 +1,203 @@
+/* src/pages/inquiry/InquiryWrite.css - 완성형 문의하기 작성 페이지 */
+
+.inquiry-write-page {
+    /* 상단 여백 증가 (60px -> 80px) */
+    max-width: 70%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 80px 20px;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Malgun Gothic", sans-serif;
+}
+
+.inquiry-write-container {
+    /* 최대 너비를 약간 조정 (선택적) */
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.inquiry-write-form {
+    /* 수직 패딩 약간 감소, 수평 패딩 유지 */
+    background: #ffffff;
+    padding: 40px 50px;
+    /* 모서리 둥글기 약간 조정 */
+    border-radius: 14px;
+    /* 그림자 농도 약간 조정 */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8f0ff;
+    backdrop-filter: blur(10px);
+}
+
+.inquiry-write-title {
+    /* 제목 아래 여백 증가 (36px -> 40px) */
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    /* 패딩 미세 조정 (14px -> 12px) */
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    position: relative;
+}
+
+.inquiry-write-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    /* 강조선 길이 감소 (60px -> 50px) */
+    width: 50px;
+    height: 3px;
+    background: #0066cc;
+}
+
+/* 폼 그룹 */
+.inquiry-write-group {
+    /* 폼 그룹 간 여백 증가 (28px -> 32px) */
+    margin-bottom: 32px;
+}
+
+.inquiry-write-group label {
+    display: block;
+    /* 폰트 크기 미세 조정 (1.02rem -> 1.05rem) */
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+}
+
+/* 입력 필드 */
+.inquiry-write-group input[type="text"],
+.inquiry-write-group input[type="tel"],
+.inquiry-write-group input[type="email"],
+.inquiry-write-group textarea {
+    width: 100%;
+    /* 수직 패딩 미세 조정 (14px -> 13px) */
+    padding: 13px 16px;
+    border: 1.5px solid #d0d7e0;
+    /* 모서리 둥글기 미세 조정 */
+    border-radius: 9px;
+    font-size: 1rem;
+    color: #1a1a1a;
+    background-color: #fbfcff;
+    box-sizing: border-box;
+    transition: all 0.28s ease;
+}
+
+.inquiry-write-group input:focus,
+.inquiry-write-group textarea:focus {
+    border-color: #0066cc;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.inquiry-write-group textarea {
+    /* 최소 높이 미세 조정 (180px -> 160px) */
+    min-height: 160px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+/* 플레이스홀더 스타일 */
+.inquiry-write-group input::placeholder,
+.inquiry-write-group textarea::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+/* 버튼 영역 */
+.inquiry-write-actions {
+    text-align: center;
+    /* 패딩 증가 (30px -> 40px) */
+    padding-top: 40px;
+    margin-top: 10px;
+}
+
+.inquiry-write-submit-btn {
+    /* 수직 패딩 증가 (15px -> 16px) */
+    padding: 16px 45px;
+    background: linear-gradient(135deg, #0066cc 0%, #0055b3 100%);
+    color: white;
+    border: none;
+    /* 모서리 둥글기 미세 조정 (12px -> 10px) */
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 180px;
+    /* 그림자 깊이/확산 증가 (0.3 -> 0.35) */
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.35);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.inquiry-write-submit-btn:hover {
+    background: linear-gradient(135deg, #0055bb 0%, #004494 100%);
+    transform: translateY(-3px);
+    /* 호버 그림자 강화 */
+    box-shadow: 0 14px 30px rgba(0, 102, 204, 0.5);
+}
+
+.inquiry-write-submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* 로딩 상태 */
+.inquiry-write-loading {
+    text-align: center;
+    padding: 120px 20px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 반응형 완벽 대응 */
+@media (max-width: 768px) {
+    .inquiry-write-page {
+        /* 상단 여백 확보 (40px -> 50px) */
+        padding: 50px 15px;
+    }
+
+    .inquiry-write-form {
+        /* 수직/수평 패딩 미세 조정 */
+        padding: 32px 24px;
+        border-radius: 14px;
+    }
+
+    .inquiry-write-title {
+        /* 폰트 크기 미세 조정 (1.9rem -> 1.8rem) */
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .inquiry-write-group input,
+    .inquiry-write-group textarea {
+        /* iOS 줌 방지 및 패딩 조정 */
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    .inquiry-write-submit-btn {
+        /* 패딩/폰트 크기 미세 조정 */
+        padding: 13px 34px;
+        font-size: 1rem;
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inquiry-write-form {
+        padding: 30px 18px;
+    }
+
+    .inquiry-write-title {
+        font-size: 1.7rem;
+    }
+
+    .inquiry-write-actions {
+        padding-top: 25px;
+    }
+}

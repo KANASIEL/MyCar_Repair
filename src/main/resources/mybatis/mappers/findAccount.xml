@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.FindAccountDAO">
+
+	<select id="findAccount" resultType="com.boot.dto.FindAccountDTO">
+		SELECT 
+            account_id AS accountId,
+            email,
+            phone_number AS phoneNumber
+        FROM tbl_account
+        WHERE email = #{email}
+          AND phone_number = #{phone}
+
+        UNION ALL
+
+        SELECT 
+            store_id AS accountId,
+            email,
+            phone_number AS phoneNumber
+        FROM tbl_store
+        WHERE email = #{email}
+          AND phone_number = #{phone}
+	</select>
+	
+	<select id="findPW" resultType="com.boot.dto.FindAccountDTO">
+		SELECT 
+            account_id AS accountId,
+            email,
+            phone_number AS phoneNumber,
+            'USER' AS role
+        FROM tbl_account
+        WHERE email = #{email}
+          AND phone_number = #{phone}
+          AND account_id = #{accountId}
+
+        UNION ALL
+
+        SELECT 
+            store_id AS accountId,
+            email,
+            phone_number AS phoneNumber,
+            'STORE' AS role
+        FROM tbl_store
+        WHERE email = #{email}
+          AND phone_number = #{phone}
+          AND store_id = #{accountId}
+	</select>
+	
+	<update id="newPW">
+	  	<choose>
+            <when test="role == 'USER'">
+                UPDATE tbl_account
+                SET password = #{password}
+                WHERE account_id = #{accountId}
+            </when>
+            <when test="role == 'STORE'">
+                UPDATE tbl_store
+                SET password = #{password}
+                WHERE store_id = #{accountId}
+            </when>
+        </choose>
+	</update>
+
+</mapper>	
+
+
+

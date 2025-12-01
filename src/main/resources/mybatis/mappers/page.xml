@@ -1,0 +1,70 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.PageDAO">
+
+	<sql id="criteria">
+
+	 <if test='type == "T"'>
+         where FAQ_TITLE like '%' || #{keyword} || '%'
+      </if>
+      <if test='type == "C"'>
+         where FAQ_CONTENT like '%' || #{keyword} || '%'
+      </if>
+      <if test='type == "TC"'>
+         where (FAQ_TITLE like '%' || #{keyword} || '%' or FAQ_CONTENT like '%' || #{keyword} || '%')
+      </if>
+		
+	</sql>
+<select id="listWithPaging" resultType="com.boot.dto.FaQDTO">
+    	<![CDATA[
+		SELECT 
+            FAQ_NO AS faqNo, FAQ_TITLE AS faqTitle, FAQ_CONTENT AS faqContent,
+            TO_CHAR(FAQ_CREATED, 'YYYY"년" MM"월" DD"일" HH24"시"MI"분"') AS faqCreated, FAQ_HIT AS faqHit 
+        FROM (
+            SELECT 
+                FAQ_NO, FAQ_TITLE, FAQ_CONTENT, FAQ_CREATED, FAQ_HIT, 
+                ROW_NUMBER() OVER (ORDER BY FAQ_NO DESC) AS rnum
+            FROM TBL_FAQ
+        ]]>
+        <include refid="criteria"></include>
+        <![CDATA[
+        )
+        WHERE rnum BETWEEN ((#{pageNum}-1) * #{amount} + 1) 
+                       AND (#{pageNum} * #{amount})
+        ]]>
+</select>
+  <select id="getTotalCount" resultType="int">
+    SELECT 
+        COUNT(*) 
+    FROM 
+        TBL_RESERVATION -- ⭐️ 예약 테이블을 COUNT 하도록 설정
+    WHERE 
+        ACCOUNT_ID = #{accountId} -- ⭐️ accountId로 필터링 추가
+        
+        </select>
+    
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

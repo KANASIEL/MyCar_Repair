@@ -1,0 +1,182 @@
+/* InquiryManage.css */
+
+/* 페이지 전체 */
+.manage-page {
+    padding: 40px 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+}
+
+.manage-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    padding: 25px 35px;
+}
+
+/* 헤더 */
+.manage-header {
+    margin-bottom: 20px;
+}
+
+.manage-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.manage-divider {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin-top: 10px;
+}
+
+/* 필터 */
+.manage-filter {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.manage-filter select {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border 0.2s ease;
+}
+
+.manage-filter select:hover {
+    border-color: #0077cc;
+}
+
+/* 로딩 / 빈 상태 */
+.manage-loading,
+.manage-empty {
+    text-align: center;
+    padding: 30px;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* 테이블 */
+.manage-table-wrapper {
+    overflow-x: auto;
+}
+
+.manage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.manage-table th,
+.manage-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.manage-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.manage-table td {
+    color: #555;
+}
+
+.manage-col-title a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.manage-col-title a:hover {
+    text-decoration: underline;
+}
+
+/* 상태 뱃지 */
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.waiting {
+    background-color: #ffeeba;
+    color: #856404;
+}
+
+.status-badge.completed {
+    background-color: #c3e6cb;
+    color: #155724;
+}
+
+/* 페이지네이션 */
+.manage-pagination {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* Pagination.css */
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-list {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-item button {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.pagination-item button:hover {
+    background-color: #0077cc;
+    color: #fff;
+    border-color: #0077cc;
+}
+
+/* 활성화된 페이지 */
+.pagination-item.active button {
+    background-color: #0077cc;
+    color: #fff;
+    font-weight: bold;
+    border-color: #0077cc;
+}
+
+/* 이전/다음 버튼 */
+.pagination-item.prev button,
+.pagination-item.next button {
+    font-weight: 600;
+    background-color: #f3f4f6;
+    border-color: #ccc;
+}
+
+.pagination-item.prev button:hover,
+.pagination-item.next button:hover {
+    background-color: #0077cc;
+    color: #fff;
+    border-color: #0077cc;
+}

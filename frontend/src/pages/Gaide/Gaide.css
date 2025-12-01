@@ -1,0 +1,91 @@
+/* src/Gaide/Gaide.css */
+
+/* 꿀팁 페이지 레이아웃 */
+.tips-page-wrapper {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    gap: 30px;
+}
+
+/* 1. 메인 컨텐츠 영역 */
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 2. 사이드바 영역 */
+.sidebar {
+    flex-basis: 280px;
+    flex-shrink: 0;
+}
+
+/* 게시글 스타일 */
+.tip-article h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tip-article .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.article-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+}
+
+.article-body strong {
+    color: #007bff; /* 파란색 강조 */
+}
+
+/* 사이드바 위젯 스타일 */
+.widget {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.widget h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget ul li {
+    margin-bottom: 8px;
+}
+
+.widget ul li a {
+    text-decoration: none;
+    color: #555;
+    line-height: 1.5;
+    transition: color 0.2s;
+    display: block; /* 클릭 영역 넓히기 */
+}
+
+.widget ul li a:hover {
+    color: #007bff;
+    font-weight: bold;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.AccountDAO">
+
+    <insert id="register" parameterType="com.boot.dto.AccountDTO">
+        INSERT INTO tbl_account (
+            user_name, 
+            account_id, 
+            password, 
+            email, 
+            phone_number
+            
+            -- account_role과 reg_date는 DB의 DEFAULT 값으로 자동 삽입됨
+        )
+        VALUES (
+            #{userName},
+            #{accountId},
+            #{password},  -- 서비스(Java)에서 암호화된 비밀번호가 넘어올 것
+            #{email},
+            #{phoneNumber}
+        )
+    </insert>
+
+</mapper>

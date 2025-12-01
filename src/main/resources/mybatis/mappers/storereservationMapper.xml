@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.StoreReservationDAO">
+
+    <select id="selectReservationsByStoreId" parameterType="String" resultType="com.boot.dto.StoreReservationDTO">
+        SELECT 
+            r.rsv_no        AS rsvNo,
+            r.store_id      AS storeId,
+            r.account_id    AS accountId,
+            r.rsv_date      AS rsvDate,
+            r.car_model     AS carModel,
+            r.service_type  AS serviceType,
+            r.request_memo  AS requestMemo,
+            r.status        AS status,
+            r.created_date  AS createdDate,
+            
+            -- TBL_ACCOUNT 테이블과 조인해서 가져오는 정보
+            a.user_name     AS customerName,
+            a.phone_number  AS customerPhone
+            
+        FROM TBL_RESERVATION r
+        JOIN TBL_ACCOUNT a ON r.account_id = a.account_id
+        WHERE r.store_id = #{storeId}
+        ORDER BY r.rsv_date DESC
+    </select>
+
+    <update id="updateReservationStatus" parameterType="map">
+        UPDATE TBL_RESERVATION
+        SET status = #{status}
+        WHERE rsv_no = #{rsvNo}
+    </update>
+
+</mapper>

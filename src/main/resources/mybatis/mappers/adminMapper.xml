@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.AdminDAO">
+
+    <update id="updateAccountRole" parameterType="com.boot.dto.AdminDTO">
+        UPDATE tbl_account
+        SET 
+            account_role = #{accountRole}
+        WHERE 
+            account_id = #{accountId}
+    </update>
+    
+    <update id="downgradeToUser">
+    UPDATE tbl_account 
+    SET account_role = 'USER' 
+    WHERE account_id = #{accountId}
+</update>
+
+</mapper>

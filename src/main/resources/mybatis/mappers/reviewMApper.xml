@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.ReviewDAO">
+
+    <!-- 1. 예약번호로 리뷰 존재 여부 -->
+    <select id="existsByRsvNo" resultType="int">
+        SELECT COUNT(*)
+        FROM TBL_REVIEW
+        WHERE rsv_no = #{rsvNo}
+    </select>
+
+    <!-- 2. 리뷰 등록 -->
+    <insert id="insertReview">
+	    INSERT INTO TBL_REVIEW (
+	        review_no,
+	        rsv_no,
+	        account_id,
+	        store_id,
+	        rating,
+	        content,
+	        created_date
+	    )
+	    VALUES (
+	        SEQ_REVIEW_NO.NEXTVAL,
+	        #{rsvNo},
+	        #{accountId},
+	        #{storeId},
+	        #{rating},
+	        #{content, jdbcType=CLOB},
+	        SYSTIMESTAMP
+	    )
+	</insert>
+
+    <!-- 3. 리뷰 수정 -->
+    <update id="updateReview">
+        UPDATE TBL_REVIEW
+        SET
+            rating = #{rating},
+            content = #{content}
+        WHERE review_no = #{reviewNo}
+          AND account_id = #{accountId}  <!-- 본인 리뷰인지 검증 -->
+    </update>
+
+    <!-- 4. 특정 가게 리뷰 리스트 -->
+    <select id="findByStoreId" resultType="com.boot.dto.ReviewDTO">
+        SELECT
+            review_no AS reviewNo,
+            rsv_no AS rsvNo,
+            account_id AS accountId,
+            store_id AS storeId,
+            rating,
+            content,
+            to_char(created_date, 'YYYY.MM.DD HH24:MI') AS createdDate
+        FROM TBL_REVIEW
+        WHERE store_id = #{storeId}
+        ORDER BY created_date DESC
+    </select>
+
+    <!-- 5. 리뷰 상세 조회 -->
+    <select id="findById" resultType="com.boot.dto.ReviewDTO">
+        SELECT
+            review_no AS reviewNo,
+            rsv_no AS rsvNo,
+            account_id AS accountId,
+            store_id AS storeId,
+            rating,
+            content,
+            created_date AS createdDate
+        FROM TBL_REVIEW
+        WHERE review_no = #{reviewNo}
+    </select>
+
+    <!-- 6. 예약 상태 조회 (리뷰 권한 체크) -->
+    <select id="findReservationStatus" resultType="string">
+        SELECT status
+        FROM TBL_RESERVATION
+        WHERE rsv_no = #{rsvNo}
+    </select>
+
+    <!-- 7. 예약자 ID 조회 (본인 권한 체크) -->
+    <select id="findAccountIdByRsvNo" resultType="string">
+        SELECT account_id
+        FROM TBL_RESERVATION
+        WHERE rsv_no = #{rsvNo, jdbcType=NUMERIC}
+    </select>
+    
+    <!-- 8. 별점 평균 구하기 -->
+    <select id="getAverageRating" parameterType="string" resultType="double">
+	    SELECT 
+	        SUM(rating) / COUNT(*) AS avgRating
+	    FROM TBL_REVIEW
+	    WHERE store_id = #{storeId}
+	</select>
+	
+	<!-- 9. 리뷰 삭제 -->
+	<delete id="deleteReview">
+	    DELETE FROM TBL_REVIEW
+	    WHERE review_no = #{reviewNo}
+	</delete>
+	
+<!--	리뷰 목록 페이징-->
+	<!-- 리뷰 목록 페이징 -->
+	<select id="findByStoreIdPaged" resultType="com.boot.dto.ReviewDTO">
+		<![CDATA[
+		    SELECT
+		        review_no AS reviewNo,
+		        rsv_no AS rsvNo,
+		        account_id AS accountId,
+		        store_id AS storeId,
+		        rating,
+		        content,
+		        TO_CHAR(created_date, 'YYYY.MM.DD HH24:MI') AS createdDate
+		    FROM (
+		        SELECT
+		            review_no,
+		            rsv_no,
+		            account_id,
+		            store_id,
+		            rating,
+		            content,
+		            created_date,
+		            ROWNUM AS rn
+		        FROM (
+		            SELECT
+		                review_no,
+		                rsv_no,
+		                account_id,
+		                store_id,
+		                rating,
+		                content,
+		                created_date
+		            FROM TBL_REVIEW
+		            WHERE store_id = #{storeId}
+		            ORDER BY created_date DESC
+		        )
+		        WHERE ROWNUM <= #{pageNum} * #{amount}
+		    )
+		    WHERE rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+
+	
+<!--	전체 개수 조회-->
+	<select id="countByStoreId" resultType="int">
+	    SELECT COUNT(*)
+	    FROM TBL_REVIEW
+	    WHERE store_id = #{storeId}
+	</select>
+	
+</mapper>
