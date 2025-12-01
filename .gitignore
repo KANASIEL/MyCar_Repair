@@ -1,0 +1,61 @@
+# === Build output ===
+/target/
+/bin/
+/build/
+/out/
+
+# === IDE settings (Eclipse / STS) ===
+/.project
+/.classpath
+/.settings/
+
+# === IntelliJ IDEA ===
+/.idea/
+/*.iml
+/*.ipr
+/*.iws
+
+# === Logs ===
+*.log
+
+# === Java compiled files ===
+*.class
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === Archive packages ===
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# === Temp & backup files ===
+*.tmp
+*.bak
+
+# === Spring Boot / application config ===
+# Allow these (tracked)
+!src/main/resources/application.yml
+!src/main/resources/application.properties
+
+# === Node (if using React later) ===
+/node_modules/
+/package-lock.json
+
+# === Crash logs ===
+hs_err_pid*
+replay_pid*
+
+# === Gradle cache ===
+/.gradle/
+
+# === Allow static/resources + templates ===
+!src/main/resources/static/
+!src/main/resources/static/**
+!src/main/resources/templates/
+!src/main/resources/templates/**
