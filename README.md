@@ -17,131 +17,179 @@ MyCar_Repair는 카카오지도 API와 공공데이터를 활용해 전국 정�
 
 | 이름   | 역할                                                                                           | GitHub |
 |--------|------------------------------------------------------------------------------------------------|--------|
-| 이현석 | **팀장** · 스프링 부트 포팅, 백엔드 구조 분리, 이미지 첨부, 서머노트 이미지·동영상 미리보기 기능 | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/leehyeonseok-NightTraveler) |
-| 정태규 | DB 설계·구현(멤버십 자동관리), 마이페이지, 관리자 페이지(예약 관리), Q&A 기능 강화             | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/KANASIEL) |
-| 김주현 | 소셜 로그인 구현, 회원정보 추가 페이지, 통합 회원가입 DB 연동(공동), 반려동물 몸무게 기록·그래프 | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/jh0317) |
-| 김지호 | 소셜 로그인 구현, 회원정보 추가 페이지, 통합 회원가입 DB 연동(공동)                           | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/jiho6670) |
-| 채교준 | DB 설계·구현, Gemini 기반 챗봇, ⚖ 반려동물 비만도 계산기                                          | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/lumineon213) |
-| 구현서 | 이메일 인증 아이디·비밀번호 찾기, 검색 자동완성, 자유게시판 CRUD 및 댓글 기능                    | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/guhyeonseo) |
+| 이현석 | **팀장** · 기능을 통합, React 전환, Spring Boot와 BCrypt 기반 보안 적용, <br>브랜치·Jira 구성, 전반적인 프로젝트 관리 | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/leehyeonseok-NightTraveler) |
+| 정태규 | 공지사항 및 1대1문의 페이지 제작, React 기반으로 전환하여 관련 기능을 구현, <br>정비 이력과 소모품 관리 페이지를 포함한 관리 기능 전반 개발 | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/KANASIEL) |
+| 김주현 | 회원가입 페이지와 관리자 전환 기능을 구현하고 메인 페이지 및 데이터베이스를 설계, <br>FAQ 페이지를 React 기반으로 전환, 정비소 예약 및 예약 조회, 수정, 취소 구현 | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/jh0317) |
+| 김지호 | 회원가입 페이지를 React 기반으로 전환하고 관리자 전환 기능을 구현, <br>업체 예약 승인·거절 관리와 처리 결과에 따른 사용자 예약 조회 기능 개발  | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/jiho6670) |
+| 채교준 | 가이드 페이지와 지도 기반 정비소 검색 페이지를 제작, SQL 설계, <br>AI 챗봇 개발, 정비소 추천 지도 연동 및 관련 기능 구현    | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/lumineon213) |
+| 구현서 | 로그인 및 아이디·비밀번호 찾기 페이지 제작, 이메일 전송 기반 계정 복구와 로그인 기능, <br>검색 자동완성, 리뷰 및 별점 기능을 구현                    | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/guhyeonseo) |
 
 
-## 🛠 기술 스택
-
-| 카테고리          | 기술 |
-|-------------------|------|
+| 카테고리 | 기술 |
+|--------|------|
 | 운영체제 | ![Windows 11](https://img.shields.io/badge/Windows%2011-0078D6?style=flat&logo=windows11&logoColor=white) |
-| 언어 | ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)&nbsp;![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) |
-| 프론트엔드 | ![JSP](https://img.shields.io/badge/JSP-000000?style=flat&logo=java&logoColor=white)&nbsp;![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jquery&logoColor=white)&nbsp;![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white) |
-| 백엔드 프레임워크 | ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white) |
-| ORM / 데이터 접근 | ![MyBatis](https://img.shields.io/badge/MyBatis-000000?style=flat&logo=mybatis&logoColor=white) |
+| 언어 | ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white) |
+| 프론트엔드 | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)&nbsp;![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) |
+| 백엔드 | ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white) |
 | 데이터베이스 | ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white) |
-| 인증 / 보안 | ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white)&nbsp;![Kakao](https://img.shields.io/badge/Kakao-FFCD00?style=flat&logo=kakaotalk&logoColor=black)&nbsp;![Google](https://img.shields.io/badge/Google-EA4335?style=flat&logo=google&logoColor=white)&nbsp;![Naver](https://img.shields.io/badge/Naver-03C75A?style=flat&logo=naver&logoColor=white) |
-| AI / 외부 API | ![Google Gemini](https://img.shields.io/badge/Google%20Gemini-886FBF?style=flat&logo=googlegemini&logoColor=white) |
-| 개발 도구 / IDE | ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat&logo=intellijidea&logoColor=white)&nbsp;![STS](https://img.shields.io/badge/Spring%20Tool%20Suite-6DB33F?style=flat&logo=spring&logoColor=white)&nbsp;![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white) |
+| ORM / 데이터 접근 | ![MyBatis](https://img.shields.io/badge/MyBatis-000000?style=flat&logo=mybatis&logoColor=white) |
+| API / 통신 | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat)&nbsp;![Fetch](https://img.shields.io/badge/Fetch-000000?style=flat)&nbsp;![Kakao API](https://img.shields.io/badge/Kakao%20API-FFCD00?style=flat&logo=kakaotalk&logoColor=black)&nbsp;![공공데이터 API](https://img.shields.io/badge/Public%20Data%20API-003A8F?style=flat) |
+| 인증 / 보안 | ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white) |
+| 협업 / 형상관리 | ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white)&nbsp;![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) |
+| 개발 도구 / IDE | ![STS](https://img.shields.io/badge/STS-6DB33F?style=flat&logo=spring&logoColor=white)&nbsp;![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat&logo=intellijidea&logoColor=white)&nbsp;![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white) |
 
 ## 🔄 서비스 이용 흐름  
 
-1️⃣ 사용자는 소셜 로그인(Kakao / Google / Naver)을 통해 회원가입  
-2️⃣ 추가 정보 입력 후 반려동물 정보 등록  
-3️⃣ 진료·미용 예약 또는 커뮤니티 이용  
-4️⃣ Gemini AI 챗봇을 통한 반려동물 상담  
-5️⃣ 마이페이지에서 몸무게·건강 정보 관리  
-6️⃣ 관리자는 관리자 페이지에서 예약·회원 관리
+1️⃣ 사용자는 로그인 페이지에서 회원가입 또는 소셜 로그인을 통해 서비스에 가입하며, 이메일 전송 기반 아이디·비밀번호 찾기 기능을 이용할 수 있습니다.  
+2️⃣ 회원가입 완료 후 일반 사용자 또는 관리자(업체)로 전환할 수 있으며, 마이페이지에서 기본 정보와 반려동물 정보를 관리합니다.  
+3️⃣ 메인 페이지와 FAQ, 가이드 페이지를 통해 서비스 이용 방법을 확인합니다.  
+4️⃣ 지도 기반 정비소 검색을 통해 업체 정보를 조회하고 예약을 신청합니다.  
+5️⃣ 업체 관리자는 관리자 페이지에서 예약을 승인 또는 거절하며, 사용자는 예약 상태를 조회·수정·취소할 수 있습니다.  
+6️⃣ 이용 완료 후 리뷰 및 별점 등록이 가능하며, 정비 이력과 소모품 관리 내역을 확인합니다.  
+7️⃣ 공지사항 확인 및 1대1 문의를 통해 관리자와 소통합니다.  
+8️⃣ Gemini AI 챗봇을 통해 반려동물 관련 상담 및 정보를 제공합니다.  
+9️⃣ 관리자는 관리자 페이지에서 회원, 예약, 공지사항, 문의 등 전반적인 서비스를 통합 관리합니다.
 
 ## 🖼 주요 화면
 
 <details>
 <summary>🏠 메인 페이지</summary>
 
-<img width="2879" height="1464" alt="image" src="https://github.com/user-attachments/assets/9a9f71d9-5567-46f0-8eba-3b89d01dd764" />  
-반려인을 위한 따뜻한 첫인상을 주는 랜딩 페이지로, 서비스 소개, 빠른 예약 버튼, 커뮤니티 바로가기 등을 한눈에 제공합니다.
-
-</details>
-
-<details>
-<summary>🔐 소셜 로그인 및 회원가입</summary>
-
-<img width="2879" height="1470" alt="image" src="https://github.com/user-attachments/assets/5a76e393-02b6-469c-8181-a24dc20988e4" />  
-Kakao, Google, Naver 소셜 로그인을 지원하며, 추가 정보 입력 후 통합 회원가입이 가능합니다.
-
-</details>
-
-<details>
-<summary>🤖 Gemini AI 챗봇 상담</summary>
+<img width="2879" height="1463" alt="image" src="https://github.com/user-attachments/assets/4692ce49-2d4f-4f9a-853e-065f888a24d5" />
   
-<img width="2879" height="1465" alt="image" src="https://github.com/user-attachments/assets/283259e9-06aa-46d2-a096-2bd2b3844e45" />  
-Google Gemini API를 활용한 실시간 챗봇으로, 반려동물 건강·영양 상담을 언제든지 받을 수 있습니다.
+차량 관리 서비스를 한눈에 확인할 수 있는 메인 화면으로,  
+주요 기능 안내, 빠른 예약 버튼, 공지사항 및 커뮤니티 바로가기를 제공합니다.
 
 </details>
 
 <details>
-<summary>⚖ 반려동물 비만도 계산기</summary>
+<summary>🔐 로그인 및 회원가입</summary>
 
-<img width="2879" height="1462" alt="image" src="https://github.com/user-attachments/assets/aed471e9-8e43-405c-8b3c-d213b2440531" />  
-보화작 눈으로 본 반려동물의 체형을 사진에서 골라 입력하면 반려동물의 비만도를 진단하고 건강 조언을 제공합니다.
+<img width="2879" height="1430" alt="image" src="https://github.com/user-attachments/assets/ca55d971-546d-4abe-be48-97a207286410" />
+
+로그인과 회원가입을 일반회과 업체를 구분지어놓음
 
 </details>
 
 <details>
-<summary>📈 몸무게 기록 및 그래프 시각화</summary>
+<summary>🗺 지도 기반 정비소 검색</summary>
+
+<img width="2879" height="1466" alt="image" src="https://github.com/user-attachments/assets/a1ca6ae3-c809-4595-8435-7127e15b304c" />
   
-<img width="2879" height="1470" alt="image" src="https://github.com/user-attachments/assets/7ca98007-e17a-42c2-bfb5-14e6d67ea88c" />  
-마이페이지에서 반려동물의 몸무게 변화를 기간별로 기록하고, 직관적인 그래프로 확인할 수 있습니다.
+지도 API를 활용해 주변 정비소를 검색하고,  
+정비소 이름·위치·상세 정보를 확인할 수 있습니다.
 
 </details>
 
 <details>
-<summary>✍ 자유게시판 글쓰기 (서머노트 에디터)</summary>
+<summary>📅 정비소 예약</summary>
 
-<img width="2879" height="1465" alt="image" src="https://github.com/user-attachments/assets/5ef736a5-b07a-4545-86dd-7b26b1cc6dab" />  
-서머노트 에디터를 활용해 이미지·동영상 첨부와 미리보기가 가능한 풍부한 게시글 작성 기능을 지원합니다.
+<img width="2878" height="1458" alt="image" src="https://github.com/user-attachments/assets/d032eae4-2c41-4c4c-b5a2-639cf8c1f979" />
+<img width="2879" height="1463" alt="image" src="https://github.com/user-attachments/assets/01af7320-bb77-455a-9ec0-b68a26e9bcce" />
+
+정비소 선택 후 예약을 신청할 수 있으며,  
+예약 내역 조회·수정·취소 기능을 제공합니다.
 
 </details>
 
 <details>
-<summary>👤 마이페이지 및 🛠 관리자 페이지</summary>
+<summary>✅ 업체 예약 관리</summary>
 
-<img width="2879" height="1463" alt="image" src="https://github.com/user-attachments/assets/b81f16c6-7042-4859-acd4-376e832a1ebc" />
-<img width="2879" height="1435" alt="image" src="https://github.com/user-attachments/assets/9f89765b-88e7-4715-a1ee-0d9ffbd2bf09" />
-<img width="2879" height="1463" alt="image" src="https://github.com/user-attachments/assets/f3346612-69d6-4178-ad69-4db0220a94ef" />
-<img width="2879" height="1425" alt="image" src="https://github.com/user-attachments/assets/ac928d4e-d7fb-45a7-a06e-3f444379ab6e" />
-<img width="2879" height="1463" alt="image" src="https://github.com/user-attachments/assets/14340719-0ced-46e4-884e-e321544d18ac" />
-<img width="2879" height="1294" alt="image" src="https://github.com/user-attachments/assets/58ec3e52-86ae-4093-9c58-452925e6aa25" />
-
-회원 정보 관리, 예약 내역 확인, 반려동물 정보 등록(마이페이지)과  
-예약·회원 관리 기능(관리자 페이지)을 제공합니다.
+<img width="2879" height="1386" alt="image" src="https://github.com/user-attachments/assets/e9aaf367-f49d-4bd9-bd08-7c33c9b14f2b" />
+  
+업체(관리자)는 예약 요청을 승인 또는 거절할 수 있으며,  
+처리 결과는 사용자에게 실시간으로 반영됩니다.
 
 </details>
 
+<details>
+<summary>🧾 정비 이력 및 소모품 관리</summary>
+
+<img width="2879" height="1398" alt="image" src="https://github.com/user-attachments/assets/a43e6f5b-fee5-4e9d-9288-73bb832f9a79" />
+<img width="2879" height="1455" alt="image" src="https://github.com/user-attachments/assets/56df8c8e-ae97-4064-8d72-f70f4e4ddf5e" />
+
+
+차량별 정비 이력과 소모품 교체 내역을 관리하고,  
+차량 상태를 체계적으로 확인할 수 있습니다.
+
+</details>
+
+</details>
+
+<details>
+<summary>📢 공지사항 · 1대1 문의, FAQ </summary>
+  
+<img width="2879" height="1453" alt="image" src="https://github.com/user-attachments/assets/24ac0a80-1c03-434f-8d9c-2890e1b95bda" />
+<img width="2879" height="1460" alt="image" src="https://github.com/user-attachments/assets/e9778414-46d6-4943-bded-e8b908c76c20" />
+<img width="2879" height="1465" alt="image" src="https://github.com/user-attachments/assets/a9647538-097d-4f26-af37-0588b801d535" />
+
+
+공지사항을 통해 서비스 안내를 확인하고,  
+1대1 문의를 통해 관리자와 직접 소통할 수 있습니다.
+또한 FAQ게시판을 통해 자주묻는 질문들을 확인할 수 있습니다.
+
+</details>
+
+<details>
+<summary>👤 마이페이지</summary>
+  
+<img width="2879" height="1462" alt="image" src="https://github.com/user-attachments/assets/3fcf7a2a-8dc4-4123-9757-416b17e27eda" />
+<img width="2879" height="1456" alt="image" src="https://github.com/user-attachments/assets/a5736bdf-7a24-418f-baa6-48f8d0eef527" />
+<img width="2878" height="922" alt="image" src="https://github.com/user-attachments/assets/07b20fd4-6046-4ffc-ac23-3bd6223353ad" />
+
+회원 정보 관리, 차량 정보 등록,  
+예약 내역 및 정비 이력을 한 곳에서 관리할 수 있습니다.
+
+</details>
+
+<details>
+<summary>🛠 관리자 페이지</summary>
+
+<img src="이미지_URL" alt="관리자 페이지" />  
+
+<img width="2877" height="1292" alt="image" src="https://github.com/user-attachments/assets/0264d61a-8fcc-47da-baba-506c06bcca9b" />
+<img width="2879" height="1114" alt="image" src="https://github.com/user-attachments/assets/8c5f23e3-ccc9-4a79-a0ae-5231f0619a40" />
+
+회원 관리, 문의 관리, 업체가입 승인 등  
+서비스 운영을 위한 관리자 전용 기능을 제공합니다.
+
+</details>
 
 ## 🐞 이슈 발생 및 해결
 
 ### 📌 이슈 개요
-- **발생 상황**: GitHub Pull Request 병합 과정
-- **관련 브랜치**: `feature/*` → `develop`
-- **증상**: 동일 파일 동시 수정으로 Merge Conflict 발생
+- **발생 상황**: React 전환 과정에서 공통 레이아웃 스타일을 적용하던 중 CSS 충돌 발생
+- **증상**: 일부 페이지 진입 시 전체 레이아웃이 깨지고, 의도하지 않은 스타일이 모든 화면에 적용되는 문제 발생
 
 ### 🔍 원인 분석
-- 동일 파일·동일 라인을 여러 명이 수정
-- 최신 `develop` 미반영 상태에서 작업
-- 작업 범위 공유 부족
+- `className`을 사용하지 않고 `<main>`과 같은 **전역 태그 선택자**로 CSS를 적용함  
+- 그 결과, 페이지별로 분리되어야 할 스타일이 모든 `<main>` 태그에 공통 적용되어 UI 충돌 발생
 
 ### 🛠 해결 방법
-- 최신 브랜치 반영
-  ```bash
-  git pull origin develop
+- 페이지별 최상위 요소에 **고유한 `className`을 부여**
+- CSS 적용 범위를 해당 클래스 내부로 제한하여 **스타일 스코프 분리**
+- 공통 레이아웃 스타일과 페이지별 스타일을 명확히 분리하여 관리
 
-## 📊 프로젝트 성과
+### ✅ 개선 결과
+- 전역 CSS 충돌 문제 완전 해결
+- 페이지별 UI 독립성 확보로 유지보수성 향상
+- React 컴포넌트 단위 스타일 관리의 중요성에 대한 이해도 강화
 
-- 6인 팀 프로젝트로 기획·개발·협업 전 과정 경험
-- 소셜 로그인 및 통합 회원 시스템 안정적 구현
-- 외부 AI API(Gemini) 연동 경험 확보
-- Oracle 기반 실서비스 수준 DB 설계 및 운영 경험
-- Git 협업 및 Merge Conflict 해결 경험 축적
+
+- 6인 팀 프로젝트로 **기획 → 설계 → 개발 → 협업 → 배포 흐름 전반을 경험**
+- Vite + React와 Spring Boot를 활용한 **프론트·백엔드 분리 아키텍처 구현**
+- Spring Security와 BCrypt를 적용해 **비밀번호 암호화 및 보안 강화**
+- Oracle DB 기반 **차량·예약·회원 데이터 구조 설계 및 CRUD 구현**
+- Kakao API 및 공공데이터 API 연동으로 **지도 기반 정비소 검색 기능 구현**
+- AI 챗봇 기능을 통해 **외부 AI API 연동 경험 확보**
+- GitHub Flow 기반 브랜치 전략과 Jira를 활용한 **협업 및 이슈 관리 경험**
+- CSS 충돌, 권한 분기, 예약 상태 관리 등 **실제 서비스 수준의 트러블슈팅 경험 축적**
 
 ## 🚀 개선 과제 및 향후 계획
 
-- 모바일 반응형 UI 고도화
-- 예약 알림(문자·푸시) 기능 추가
-- 관리자 통계 대시보드 제공
-- AI 상담 답변 품질 개선 및 로그 분석
+- 관리자·업체·사용자 권한을 명확히 분리한 **Role 기반 접근 제어 고도화**
+- 예약 승인/거절 상태 흐름을 단순화하고 알림 기능을 추가하여 **예약 UX 개선**
+- 대용량 데이터 증가에 대비한 **쿼리 튜닝 및 인덱스 최적화**
+- 공공데이터 API 장애 발생 시를 대비한 **Fallback 처리 및 예외 대응 로직 강화**
+- 테스트 코드(JUnit, Mockito) 도입을 통한 **기능 안정성 및 회귀 오류 방지**
+- CI/CD 파이프라인 구축을 통해 **배포 자동화 및 운영 효율성 향상**
