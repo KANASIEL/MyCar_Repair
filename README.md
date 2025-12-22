@@ -24,6 +24,7 @@ MyCar_Repair는 카카오지도 API와 공공데이터를 활용해 전국 정�
 | 채교준 | 가이드 페이지와 지도 기반 정비소 검색 페이지를 제작, SQL 설계, <br>AI 챗봇 개발, 정비소 추천 지도 연동 및 관련 기능 구현    | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/lumineon213) |
 | 구현서 | 로그인 및 아이디·비밀번호 찾기 페이지 제작, 이메일 전송 기반 계정 복구와 로그인 기능, <br>검색 자동완성, 리뷰 및 별점 기능을 구현                    | [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat&logo=github&logoColor=white)](https://github.com/guhyeonseo) |
 
+## 기술 스택 🛠️
 
 | 카테고리 | 기술 |
 |--------|------|
